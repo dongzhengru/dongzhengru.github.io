@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="第一次搭建博客, dongzhengru">
+    <meta name="keywords" content="Java入门-零钱通项目, dongzhengru">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>第一次搭建博客 | dongzhengru</title>
+    <title>Java入门-零钱通项目 | dongzhengru</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">第一次搭建博客</h1>
+                    <h1 class="description center-align post-title">Java入门-零钱通项目</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">博客搭建</span>
+                            <a href="/tags/Java%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE/">
+                                <span class="chip bg-color">Java入门项目</span>
                             </a>
                         
                     </div>
@@ -471,95 +471,135 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="欢迎来到我的博客！这是我的第一篇文章"><a href="#欢迎来到我的博客！这是我的第一篇文章" class="headerlink" title="欢迎来到我的博客！这是我的第一篇文章"></a><strong>欢迎来到我的博客！这是我的第一篇文章</strong></h2><p>也没什么好说的，就记录一下我搭建博客的过程吧…</p>
-<p>纯小白，看学长写的<a target="_blank" rel="noopener" href="https://lcdzzz.github.io/2022/11/05/hexo-bo-ke-an-zhuang-jiao-cheng-tai-jiao-ji/">教程</a>一步步创建了Hexo博客，中间虽然出了很多的问题，不过最后都一个个百度解决了</p>
-<h3 id="一、环境安装"><a href="#一、环境安装" class="headerlink" title="一、环境安装"></a>一、环境安装</h3><h5 id="安装git、Nodejs"><a href="#安装git、Nodejs" class="headerlink" title="安装git、Nodejs"></a>安装git、Nodejs</h5><p>用下面两条语句检查是否安装成功</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">node</span> <span class="token parameter variable">-v</span>
-<span class="token function">npm</span> <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <p>这是我学Java这么久的第一个简单的小项目</p>
+<p>为了能更好地了解OOP的好处，我先使用了面向过程进行了编写，然后再用面向对象重新再写一次</p>
+<h3 id="一、零钱通项目需求"><a href="#一、零钱通项目需求" class="headerlink" title="一、零钱通项目需求"></a>一、零钱通项目需求</h3><p>具体界面如下图</p>
+<p><img src="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/image-20221109170656388.png" alt="image-20221109170656388"></p>
+<p>一共包含4个功能</p>
+<p><code>1.零钱通明细：可以查询入账+消费的流水</code></p>
+<p><code>2.收益入账：对余额进行充值，输入金额，输出明细</code></p>
+<p><code>3.消费：顾名思义就是花钱，输入用途和金额，输出明细，并且对金额进行验证，不能出现透支等情况</code></p>
+<p><code>4.退出：写一个是否确认退出输入y/n的条件</code></p>
+<p>如下图</p>
+<p><img src="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/image-20221109171009202.png" alt="image-20221109171009202"></p>
+<h3 id="二、面向过程编写"><a href="#二、面向过程编写" class="headerlink" title="二、面向过程编写"></a>二、面向过程编写</h3><h5 id="创建一些基本的属性"><a href="#创建一些基本的属性" class="headerlink" title="创建一些基本的属性"></a>创建一些基本的属性</h5><p>因为刚入门所以采用比较简单的字符串拼接方法来显示流水</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Boolean loop&#x3D;true;		#判断是否退出程序
+Scanner sc&#x3D;new Scanner(System.in);
+String key&#x3D;&quot;&quot;;			#接收数字选择菜单
+String details&#x3D;&quot;---------------零钱通明细---------------\n&quot;;
+double money&#x3D;0;			#接收金额
+double balance&#x3D;0;		#余额
+String note&#x3D;&quot;&quot;;			#消费用途<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="安装cnpm-检查版本"><a href="#安装cnpm-检查版本" class="headerlink" title="安装cnpm,检查版本"></a>安装cnpm,检查版本</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> cnpm <span class="token parameter variable">--registry</span><span class="token operator">=</span>http://registry.npm.taobao.org
-cnpm <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>因为流水要显示日期，所以临时浅学了个<code>Data</code></p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Date date&#x3D;null;
+SimpleDateFormat sdf&#x3D;new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);		#日期格式化<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h5 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h5><p>我第一次就是这里卡了导致后面博客加载不出来……..</p>
-<pre class="line-numbers language-none"><code class="language-none">cnpm install -g hexo-cli
-hexo -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>写一个<code>do-while</code>来嵌套整个系统</p>
+<pre class="line-numbers language-none"><code class="language-none">do &#123;
+    
+&#125;while (loop);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="二、博客程序安装"><a href="#二、博客程序安装" class="headerlink" title="二、博客程序安装"></a>二、博客程序安装</h3><h5 id="连接Github"><a href="#连接Github" class="headerlink" title="连接Github"></a>连接Github</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"GitHub 用户名"</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"GitHub 邮箱"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>输出主菜单并且获取用户选择<code>Key</code></p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;零钱通菜单&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+System.out.println(&quot;\t\t\t1 零钱通明细&quot;);
+System.out.println(&quot;\t\t\t2 收益入账&quot;);
+System.out.println(&quot;\t\t\t3 消费&quot;);
+System.out.println(&quot;\t\t\t4 退    出&quot;);
+System.out.print(&quot;请选择(1-4):&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="创建ssh公钥秘钥"><a href="#创建ssh公钥秘钥" class="headerlink" title="创建ssh公钥秘钥"></a>创建ssh公钥秘钥</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"GitHub 邮箱"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>用<code>switch</code>语句来分别实现4个菜单选项的功能</p>
+<pre class="line-numbers language-none"><code class="language-none">switch (key)&#123;
+    case &quot;1&quot;:
+    case &quot;2&quot;:
+    case &quot;3&quot;:
+    case &quot;4&quot;:
+    default:
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>将id_rsa.pub中的公钥添加到github的账号里</p>
-<h5 id="用bash验证连接"><a href="#用bash验证连接" class="headerlink" title="用bash验证连接"></a>用bash验证连接</h5><p>这个地方我看的教程说会出现are you sure，但我验证的时候没出现，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="功能1：零钱通明细"><a href="#功能1：零钱通明细" class="headerlink" title="功能1：零钱通明细"></a>功能1：零钱通明细</h5><p>因为采用字符串拼接所以明细相对简单，直接输出字符串<code>details</code>即可</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">case &quot;1&quot;:
+    System.out.println(details);
+    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>这里出现了个but还以为出了什么问题，搜了一圈发现没问题。。。</p>
-<h5 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h5><p>Github的用户名+.github.io（必须要是这个）</p>
-<h5 id="安装Hexo博客程序"><a href="#安装Hexo博客程序" class="headerlink" title="安装Hexo博客程序"></a>安装Hexo博客程序</h5><p>创建一个本地文件夹，在根目录右键bash</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="功能2：收益入账"><a href="#功能2：收益入账" class="headerlink" title="功能2：收益入账"></a>功能2：收益入账</h5><p>虽然比较长但其实都是一些简单的功能，<code>if</code>用来判断充值是否为正数，主要就是<code>details</code>拼接的问题</p>
+<pre class="line-numbers language-none"><code class="language-none">case &quot;2&quot;:
+    System.out.print(&quot;收益入账金额:&quot;);
+    money&#x3D;sc.nextDouble();		#接收入账金额
+    while (true) &#123;
+        if (money&lt;&#x3D;0)&#123;			#金额验证是否有效
+            System.out.println(&quot;输入有误，请重新输入&quot;);
+            System.out.print(&quot;收益入账金额:&quot;);
+            money&#x3D;sc.nextDouble();
+        &#125;
+        else &#123;
+            break;
+        &#125;
+    &#125;
+    balance+&#x3D;money;				#余额计算
+    date&#x3D;new Date();			#时间获取
+    details+&#x3D;&quot;\n收益入账\t+&quot;+money+&quot;\t&quot;+sdf.format(date)+&quot;\t&quot;+balance;	#拼接字符串
+    System.out.println(details);
+    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>这里可能比较比较比较比较比较慢，因网而异吧</p>
-<h5 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
-<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="功能3：消费"><a href="#功能3：消费" class="headerlink" title="功能3：消费"></a>功能3：消费</h5><p>其实功能3和功能2基本一致，复制过来加个用途就能套用，<code>if</code>判断条件改为判断余额够不够</p>
+<pre class="line-numbers language-none"><code class="language-none">case &quot;3&quot;:
+    System.out.print(&quot;消费用途:&quot;);
+    note&#x3D;sc.next();
+    System.out.print(&quot;消费金额:&quot;);
+    money&#x3D;sc.nextDouble();
+    while (true) &#123;
+        if (money&gt;balance)&#123;
+            System.out.println(&quot;余额不足，请重新输入&quot;);
+            System.out.print(&quot;消费用途:&quot;);
+            note&#x3D;sc.next();
+            System.out.print(&quot;消费金额:&quot;);
+            money&#x3D;sc.nextDouble();
+        &#125;
+        else &#123;
+            break;
+        &#125;
+    &#125;
+    balance-&#x3D;money;
+    date&#x3D;new Date();
+    details+&#x3D;&quot;\n&quot;+note+&quot;\t-&quot;+money+&quot;\t&quot;+sdf.format(date)+&quot;\t&quot;+balance;
+    System.out.println(details);
+    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="功能4：退出"><a href="#功能4：退出" class="headerlink" title="功能4：退出"></a>功能4：退出</h5><p>常规的退出，利用前面的<code>loop</code>来退出零钱通系统</p>
+<pre class="line-numbers language-none"><code class="language-none">System.out.println(&quot;是否确认退出，请输入y&#x2F;n&quot;);
+note&#x3D;sc.next();
+while(true)&#123;
+    if (note.equals(&quot;y&quot;))&#123;
+        loop&#x3D;false;
+        break;
+    &#125;
+    else if(note.equals(&quot;n&quot;))&#123;
+        loop&#x3D;true;
+        break;
+    &#125;
+    else &#123;
+        System.out.println(&quot;输入有误，请重新输入&quot;);
+        note&#x3D;sc.next();
+    &#125;
+&#125;
+break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>默认端口4000，校园网的4000好像被占用了所以用<code>hexo server -p 5000</code>改端口号就行了</p>
-<p>本地预览页<code>http://localhost:4000</code></p>
-<h3 id="三、部署上传到Github"><a href="#三、部署上传到Github" class="headerlink" title="三、部署上传到Github"></a>三、部署上传到Github</h3><h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="程序退出"><a href="#程序退出" class="headerlink" title="程序退出"></a>程序退出</h5><p>美观一点加一句退出项目</p>
+<pre class="line-numbers language-none"><code class="language-none">System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;选择退出了零钱通项目&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p> 更改根目录_config.yml最后的地方</p>
-<p>这里的分支我改成了main，之前用master好像上传不上去，但我不知道是不是分支的问题</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> git@github.com/用户名/用户名.github.io.git
-  <span class="token key atrule">branch</span><span class="token punctuation">:</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这里可能需要等一段时间，具体时间比较随缘</p>
-<h5 id="至此你就可以通过下面的域名来访问自己的博客了"><a href="#至此你就可以通过下面的域名来访问自己的博客了" class="headerlink" title="至此你就可以通过下面的域名来访问自己的博客了"></a>至此你就可以通过下面的域名来访问自己的博客了</h5><pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">https:&#x2F;&#x2F;用户名.github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="四、主题安装"><a href="#四、主题安装" class="headerlink" title="四、主题安装"></a>四、主题安装</h3><p>这里我拿matery主题来举例，其他的应该大同小异</p>
-<h5 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h5><p>解压后，复制文件夹到博客主题文件夹</p>
-<h5 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h5><p>改<code>theme</code>为<code>hexo-theme-matery</code>  #主题名（必须跟主题文件夹名字一致）</p>
-<p>改<code>url</code>为<code>http://用户名.github.io</code></p>
-<p>改<code>per_page</code>为<code>6、12、18</code>（6的倍数）</p>
-<p>改<code>language</code>为<code>zh-CN</code></p>
-<h5 id="新建类别、标记、关于页"><a href="#新建类别、标记、关于页" class="headerlink" title="新建类别、标记、关于页"></a>新建类别、标记、关于页</h5><pre class="line-numbers language-none"><code class="language-none">hexo new page &quot;categories&quot;
-hexo new page &quot;tags&quot;
-hexo new page &quot;about&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>分别在新页面文件内添加以下内容</p>
-<pre class="line-numbers language-none"><code class="language-none">---
-title: categories
-date: 2018-09-30 17:25:30
-type: &quot;categories&quot;
-layout: &quot;categories&quot;
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<pre class="line-numbers language-none"><code class="language-none">---
-title: tags
-date: 2018-09-10 18:23:38
-type: &quot;tags&quot;
-layout: &quot;tags&quot;
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">---
-title: about
-date: 2018-09-30 17:25:30
-type: &quot;about&quot;
-layout: &quot;about&quot;
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="上传到Github"><a href="#上传到Github" class="headerlink" title="上传到Github"></a>上传到Github</h5><pre class="line-numbers language-none"><code class="language-none">hexo g
-hexo s		#测试
-hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="结束…"><a href="#结束…" class="headerlink" title="结束…"></a>结束…</h5><p>博主很懒</p>
-<p>以后看博主心情更新吧…</p>
+<h3 id="三、面向对象编写"><a href="#三、面向对象编写" class="headerlink" title="三、面向对象编写"></a>三、面向对象编写</h3><p>下面用OOP来写，其实直接照搬就好了</p>
+<h5 id="创建属性"><a href="#创建属性" class="headerlink" title="创建属性"></a>创建属性</h5><p>同样的创建属性就不用过多赘述了</p>
+<h5 id="创建方法"><a href="#创建方法" class="headerlink" title="创建方法"></a>创建方法</h5><p>写了四个方法：</p>
+<p><code>details：输出流水</code></p>
+<p><code>income：本质就是功能2的代码，下同</code></p>
+<p><code>pay：功能3</code></p>
+<p><code>exit：功能4</code></p>
+<p>这里要注意的一点是方法里的退出是<code>return</code>不是<code>break</code></p>
+<p>所以稍加更改就可以使用了</p>
+<h5 id="创建主类"><a href="#创建主类" class="headerlink" title="创建主类"></a>创建主类</h5><p>再创建一个主类<code>SmallchangeApp</code>，完成对<code>SmallChangeSysOOP</code>的调用即可</p>
+<p><img src="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/image-20221109174850541.png" alt="image-20221109174850541"></p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>OOP更加灵活，用方法来管理各个功能，更容易维护和拓展</p>
 
                 
             </div>
@@ -586,7 +626,7 @@ hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dongzhengru.github.io/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">http://dongzhengru.github.io/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</a>
+                    <a href="http://dongzhengru.github.io/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/">http://dongzhengru.github.io/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,8 +664,8 @@ hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">博客搭建</span>
+                                <a href="/tags/Java%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE/">
+                                    <span class="chip bg-color">Java入门项目</span>
                                 </a>
                             
                         </div>
@@ -795,9 +835,10 @@ hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
@@ -815,9 +856,9 @@ hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></sp
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -826,6 +867,7 @@ hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></sp
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -841,7 +883,7 @@ hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></sp
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
@@ -871,7 +913,6 @@ hexo d      #上传<span aria-hidden="true" class="line-numbers-rows"><span></sp
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
