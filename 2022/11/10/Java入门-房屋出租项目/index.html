@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java入门-零钱通项目, dongzhengru">
+    <meta name="keywords" content="Java入门-房屋出租项目, dongzhengru">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java入门-零钱通项目 | dongzhengru</title>
+    <title>Java入门-房屋出租项目 | dongzhengru</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -247,12 +247,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java入门-零钱通项目</h1>
+                    <h1 class="description center-align post-title">Java入门-房屋出租项目</h1>
                 </div>
             </div>
         </div>
@@ -384,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-09
+                    2022-11-10
                 </div>
                 
 
@@ -408,135 +408,332 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这是我学Java这么久的第一个简单的小项目</p>
-<p>为了能更好地了解OOP的好处，我先使用了面向过程进行了编写，然后再用面向对象重新再写一次</p>
-<h3 id="一、零钱通项目需求"><a href="#一、零钱通项目需求" class="headerlink" title="一、零钱通项目需求"></a>一、零钱通项目需求</h3><p>具体界面如下图</p>
-<p><img src="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/image-20221109170656388.png" alt="image-20221109170656388"></p>
-<p>一共包含4个功能</p>
-<p><code>1.零钱通明细：可以查询入账+消费的流水</code></p>
-<p><code>2.收益入账：对余额进行充值，输入金额，输出明细</code></p>
-<p><code>3.消费：顾名思义就是花钱，输入用途和金额，输出明细，并且对金额进行验证，不能出现透支等情况</code></p>
-<p><code>4.退出：写一个是否确认退出输入y/n的条件</code></p>
-<p>如下图</p>
-<p><img src="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/image-20221109171009202.png" alt="image-20221109171009202"></p>
-<h3 id="二、面向过程编写"><a href="#二、面向过程编写" class="headerlink" title="二、面向过程编写"></a>二、面向过程编写</h3><h5 id="创建一些基本的属性"><a href="#创建一些基本的属性" class="headerlink" title="创建一些基本的属性"></a>创建一些基本的属性</h5><p>因为刚入门所以采用比较简单的字符串拼接方法来显示流水</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Boolean loop&#x3D;true;		#判断是否退出程序
-Scanner sc&#x3D;new Scanner(System.in);
-String key&#x3D;&quot;&quot;;			#接收数字选择菜单
-String details&#x3D;&quot;---------------零钱通明细---------------\n&quot;;
-double money&#x3D;0;			#接收金额
-double balance&#x3D;0;		#余额
-String note&#x3D;&quot;&quot;;			#消费用途<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <p>第二个项目…应该比第一个复杂一点</p>
+<p>一个一个功能逐步实现 [明确完成功能&#x3D;&gt;思路分析&#x3D;&gt;代码实现]</p>
+<p>这次创建多个包，各司其职，再利用<code>HouseRentApp</code>来完成调用</p>
+<p><img src="/2022/11/10/Java%E5%85%A5%E9%97%A8-%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE/image-20221109195601840.png" alt="image-20221109195601840"></p>
+<h3 id="一-需求说明"><a href="#一-需求说明" class="headerlink" title="一.需求说明"></a>一.需求说明</h3><p>对房屋信息的各种操作（添加、修改和删除），可以用数组实现</p>
+<p>输出房屋明细表</p>
+<p>主菜单界面如下</p>
+<p><img src="/2022/11/10/Java%E5%85%A5%E9%97%A8-%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE/image-20221109195655745.png" alt="image-20221109195655745"></p>
+<h3 id="二、引入Utility工具类"><a href="#二、引入Utility工具类" class="headerlink" title="二、引入Utility工具类"></a>二、引入Utility工具类</h3><p>这里用了韩顺平老师的代码，使用<code>类.方法（）</code></p>
+<p>因为当一个方法是<code>static</code>时，就是静态方法</p>
+<p>静态方法可以直接通过类名调用</p>
+<p>源码如下</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package utils;
 
-<p>因为流水要显示日期，所以临时浅学了个<code>Data</code></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Date date&#x3D;null;
-SimpleDateFormat sdf&#x3D;new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);		#日期格式化<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>写一个<code>do-while</code>来嵌套整个系统</p>
-<pre class="line-numbers language-none"><code class="language-none">do &#123;
+&#x2F;**
+	工具类的作用:
+	处理各种情况的用户输入，并且能够按照程序员的需求，得到用户的控制台输入。
+*&#x2F;
+
+import java.util.*;
+&#x2F;**
+	
+*&#x2F;
+public class Utility &#123;
+	&#x2F;&#x2F;静态属性。。。
+    private static Scanner scanner &#x3D; new Scanner(System.in);
+
+
+    &#x2F;**
+     * 功能：读取键盘输入的一个菜单选项，值：1——5的范围
+     * @return 1——5
+     *&#x2F;
+    public static char readMenuSelection() &#123;
+        char c;
+        for (; ; ) &#123;
+            String str &#x3D; readKeyBoard(1, false);&#x2F;&#x2F;包含一个字符的字符串
+            c &#x3D; str.charAt(0);&#x2F;&#x2F;将字符串转换成字符char类型
+            if (c !&#x3D; &#39;1&#39; &amp;&amp; c !&#x3D; &#39;2&#39; &amp;&amp; 
+                c !&#x3D; &#39;3&#39; &amp;&amp; c !&#x3D; &#39;4&#39; &amp;&amp; c !&#x3D; &#39;5&#39;) &#123;
+                System.out.print(&quot;选择错误，请重新输入：&quot;);
+            &#125; else break;
+        &#125;
+        return c;
+    &#125;
+     
+    &#x2F;**
+     * 功能：读取键盘输入的一个字符
+     * @return 一个字符
+     *&#x2F;
+    public static char readChar() &#123;
+        String str &#x3D; readKeyBoard(1, false);&#x2F;&#x2F;就是一个字符
+        return str.charAt(0);
+    &#125;
+    &#x2F;**
+     * 功能：读取键盘输入的一个字符，如果直接按回车，则返回指定的默认值；否则返回输入的那个字符
+     * @param defaultValue 指定的默认值
+     * @return 默认值或输入的字符
+     *&#x2F;
     
-&#125;while (loop);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>输出主菜单并且获取用户选择<code>Key</code></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;零钱通菜单&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-System.out.println(&quot;\t\t\t1 零钱通明细&quot;);
-System.out.println(&quot;\t\t\t2 收益入账&quot;);
-System.out.println(&quot;\t\t\t3 消费&quot;);
-System.out.println(&quot;\t\t\t4 退    出&quot;);
-System.out.print(&quot;请选择(1-4):&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>用<code>switch</code>语句来分别实现4个菜单选项的功能</p>
-<pre class="line-numbers language-none"><code class="language-none">switch (key)&#123;
-    case &quot;1&quot;:
-    case &quot;2&quot;:
-    case &quot;3&quot;:
-    case &quot;4&quot;:
-    default:
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="功能1：零钱通明细"><a href="#功能1：零钱通明细" class="headerlink" title="功能1：零钱通明细"></a>功能1：零钱通明细</h5><p>因为采用字符串拼接所以明细相对简单，直接输出字符串<code>details</code>即可</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">case &quot;1&quot;:
-    System.out.println(details);
-    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="功能2：收益入账"><a href="#功能2：收益入账" class="headerlink" title="功能2：收益入账"></a>功能2：收益入账</h5><p>虽然比较长但其实都是一些简单的功能，<code>if</code>用来判断充值是否为正数，主要就是<code>details</code>拼接的问题</p>
-<pre class="line-numbers language-none"><code class="language-none">case &quot;2&quot;:
-    System.out.print(&quot;收益入账金额:&quot;);
-    money&#x3D;sc.nextDouble();		#接收入账金额
-    while (true) &#123;
-        if (money&lt;&#x3D;0)&#123;			#金额验证是否有效
-            System.out.println(&quot;输入有误，请重新输入&quot;);
-            System.out.print(&quot;收益入账金额:&quot;);
-            money&#x3D;sc.nextDouble();
+    public static char readChar(char defaultValue) &#123;
+        String str &#x3D; readKeyBoard(1, true);&#x2F;&#x2F;要么是空字符串，要么是一个字符
+        return (str.length() &#x3D;&#x3D; 0) ? defaultValue : str.charAt(0);
+    &#125;
+    
+    &#x2F;**
+     * 功能：读取键盘输入的整型，长度小于2位
+     * @return 整数
+     *&#x2F;
+    public static int readInt() &#123;
+        int n;
+        for (; ; ) &#123;
+            String str &#x3D; readKeyBoard(10, false);&#x2F;&#x2F;一个整数，长度&lt;&#x3D;10位
+            try &#123;
+                n &#x3D; Integer.parseInt(str);&#x2F;&#x2F;将字符串转换成整数
+                break;
+            &#125; catch (NumberFormatException e) &#123;
+                System.out.print(&quot;数字输入错误，请重新输入：&quot;);
+            &#125;
         &#125;
-        else &#123;
+        return n;
+    &#125;
+    &#x2F;**
+     * 功能：读取键盘输入的 整数或默认值，如果直接回车，则返回默认值，否则返回输入的整数
+     * @param defaultValue 指定的默认值
+     * @return 整数或默认值
+     *&#x2F;
+    public static int readInt(int defaultValue) &#123;
+        int n;
+        for (; ; ) &#123;
+            String str &#x3D; readKeyBoard(10, true);
+            if (str.equals(&quot;&quot;)) &#123;
+                return defaultValue;
+            &#125;
+    		
+    		&#x2F;&#x2F;异常处理...
+            try &#123;
+                n &#x3D; Integer.parseInt(str);
+                break;
+            &#125; catch (NumberFormatException e) &#123;
+                System.out.print(&quot;数字输入错误，请重新输入：&quot;);
+            &#125;
+        &#125;
+        return n;
+    &#125;
+     
+    &#x2F;**
+     * 功能：读取键盘输入的指定长度的字符串
+     * @param limit 限制的长度
+     * @return 指定长度的字符串
+     *&#x2F;
+     
+    public static String readString(int limit) &#123;
+        return readKeyBoard(limit, false);
+    &#125;
+     
+    &#x2F;**
+     * 功能：读取键盘输入的指定长度的字符串或默认值，如果直接回车，返回默认值，否则返回字符串
+     * @param limit 限制的长度
+     * @param defaultValue 指定的默认值
+     * @return 指定长度的字符串
+     *&#x2F;
+    
+    public static String readString(int limit, String defaultValue) &#123;
+        String str &#x3D; readKeyBoard(limit, true);
+        return str.equals(&quot;&quot;)? defaultValue : str;
+    &#125;
+
+ 
+
+	&#x2F;**
+	 * 功能：读取键盘输入的确认选项，Y或N
+	 * 将小的功能，封装到一个方法中.
+	 * @return Y或N
+	 *&#x2F;
+	public static char readConfirmSelection() &#123;
+	    System.out.println(&quot;请输入你的选择(Y&#x2F;N): 请小心选择&quot;);
+	    char c;
+	    for (; ; ) &#123;&#x2F;&#x2F;无限循环
+	    	&#x2F;&#x2F;在这里，将接受到字符，转成了大写字母
+	    	&#x2F;&#x2F;y &#x3D;&gt; Y n&#x3D;&gt;N
+	        String str &#x3D; readKeyBoard(1, false).toUpperCase();
+	        c &#x3D; str.charAt(0);
+	        if (c &#x3D;&#x3D; &#39;Y&#39; || c &#x3D;&#x3D; &#39;N&#39;) &#123;
+	            break;
+	        &#125; else &#123;
+	            System.out.print(&quot;选择错误，请重新输入：&quot;);
+	        &#125;
+	    &#125;
+	    return c;
+	&#125;
+	 
+	&#x2F;**
+	 * 功能： 读取一个字符串
+	 * @param limit 读取的长度
+	 * @param blankReturn 如果为true ,表示 可以读空字符串。 
+	 * 					  如果为false表示 不能读空字符串。
+	 * 			
+	 *	如果输入为空，或者输入大于limit的长度，就会提示重新输入。
+	 * @return
+	 *&#x2F;
+	private static String readKeyBoard(int limit, boolean blankReturn) &#123;
+	    
+		&#x2F;&#x2F;定义了字符串
+		String line &#x3D; &quot;&quot;;
+	 
+		&#x2F;&#x2F;scanner.hasNextLine() 判断有没有下一行
+	    while (scanner.hasNextLine()) &#123;
+	        line &#x3D; scanner.nextLine();&#x2F;&#x2F;读取这一行
+	       
+			&#x2F;&#x2F;如果line.length&#x3D;0, 即用户没有输入任何内容，直接回车
+			if (line.length() &#x3D;&#x3D; 0) &#123;
+	            if (blankReturn) return line;&#x2F;&#x2F;如果blankReturn&#x3D;true,可以返回空串
+	            else continue; &#x2F;&#x2F;如果blankReturn&#x3D;false,不接受空串，必须输入内容
+	        &#125;
+	 
+			&#x2F;&#x2F;如果用户输入的内容大于了 limit，就提示重写输入  
+			&#x2F;&#x2F;如果用户如的内容 &gt;0 &lt;&#x3D; limit ,我就接受
+	        if (line.length() &lt; 1 || line.length() &gt; limit) &#123;
+	            System.out.print(&quot;输入长度（不能大于&quot; + limit + &quot;）错误，请重新输入：&quot;);
+	            continue;
+	        &#125;
+	        break;
+	    &#125;
+	 
+	    return line;
+	&#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="三、完成domain类-x2F-数据层"><a href="#三、完成domain类-x2F-数据层" class="headerlink" title="三、完成domain类&#x2F;数据层"></a>三、完成domain类&#x2F;数据层</h3><p>一个<code>House</code>对象表示一个房屋信息</p>
+<p><code>House</code>类有哪些属性，可以通过给出的界面分析得到</p>
+<p>如下图</p>
+<p><img src="/2022/11/10/Java%E5%85%A5%E9%97%A8-%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE/image-20221109195916485.png" alt="image-20221109195916485"></p>
+<p>即<code>编号</code> <code>房主</code> <code>电话</code> <code>地址</code> <code>月租</code> <code>状态（未出租/已出租）</code></p>
+<p>在<code>House.java</code>中创建相应的属性，再创建构造器和<code>setter</code>，<code>getter</code>方法</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private int id;
+private String name;
+private String phone;
+private String address;
+private int rent;
+private String state;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>利用快捷键<code>alt+insert</code>创建<code>toString</code>，根据界面重写<code>toString</code>方法</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@Override
+public String toString() &#123;
+    return id +
+            &quot;\t\t&quot; + name +
+            &quot;\t&quot; + phone +
+            &quot;\t\t&quot; + address +
+            &quot;\t&quot; + rent +
+            &quot;\t&quot; + state;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="四、完成View类-x2F-界面"><a href="#四、完成View类-x2F-界面" class="headerlink" title="四、完成View类&#x2F;界面"></a>四、完成View类&#x2F;界面</h3><p>功能说明：</p>
+<p>用户打开软件，可以看到主菜单，可以退出软件</p>
+<p>主菜单和上一个零钱通项目里的主菜单一致，我们这里也使用<code>do-while</code>循环和<code>loop</code>来控制进入和退出</p>
+<p>直接上代码</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">do &#123;
+    System.out.println(&quot;\n&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;房屋出租系统&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+    System.out.println(&quot;\t\t1.新 增 房 源&quot;);
+    System.out.println(&quot;\t\t2.查 找 房 源&quot;);
+    System.out.println(&quot;\t\t3.删 除 房 屋 信 息&quot;);
+    System.out.println(&quot;\t\t4.修 改 房 屋 信 息&quot;);
+    System.out.println(&quot;\t\t5.房 屋 列 表&quot;);
+    System.out.println(&quot;\t\t6.退      出&quot;);
+    System.out.print(&quot;请输入你的选择（1-6）&quot;);
+    key &#x3D; Utility.readChar();
+
+    switch (key)&#123;
+        case &#39;1&#39;:
+        	break;
+        case &#39;2&#39;:
+        	break;
+        case &#39;3&#39;:
+        	break;
+        case &#39;4&#39;:
+        	break;
+        case &#39;5&#39;:
+        	break;
+        case &#39;6&#39;:
+        	loop &#x3D; false;
+        	break;
+    &#125;
+&#125;while (loop);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此时我们可以在<code>HouseRentApp</code>里调用这个<code>mainMeun</code>方法了</p>
+<p>直接使用一行代码完成调用，不需要再去接收了，啰嗦且麻烦</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">new HouseView().mainMenu();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="五、完成service类-x2F-业务层"><a href="#五、完成service类-x2F-业务层" class="headerlink" title="五、完成service类&#x2F;业务层"></a>五、完成service类&#x2F;业务层</h3><p>响应<code>HouseView</code>的调用</p>
+<p>完成对房屋信息的各种操作（增删改查&#x2F;crud）（用数组实现）</p>
+<p>定义<code>House[]</code>，保存<code>House</code>对象，顺便再初始化一个对象用于测试列表</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private House[] houses;
+
+public HouseService(int size)&#123;
+	houses&#x3D;new House[size];
+	
+	houses[0]&#x3D;new House(1,&quot;Jack&quot;,&quot;188&quot;,&quot;杭电路&quot;,20000,&quot;已出租&quot;)
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>编写<code>list()</code>用来返回所有房屋信息</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public House[] lists()&#123;
+	return houses;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>在<code>HouseView</code>中调用<code>list</code>输出房屋列表</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private HouseService houseService &#x3D;new HouseService(10);
+
+public void listHouse()&#123;
+    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;房屋列表&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+    System.out.println(&quot;编号\t\t房主\t\t电话\t\t地址\t\t月租\t\t状态（未出租&#x2F;已出租）&quot;);
+    House[] houses &#x3D; houseService.list();
+    for (int i &#x3D; 0; i &lt; houses.length; i++) &#123;
+        if (houses[i] &#x3D;&#x3D; null)&#123;				#加入判断机制避免输出空的数组
             break;
         &#125;
+        System.out.println(houses[i]);		#House类中toString重写生效
     &#125;
-    balance+&#x3D;money;				#余额计算
-    date&#x3D;new Date();			#时间获取
-    details+&#x3D;&quot;\n收益入账\t+&quot;+money+&quot;\t&quot;+sdf.format(date)+&quot;\t&quot;+balance;	#拼接字符串
-    System.out.println(details);
-    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;房屋列表显示完毕&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="功能3：消费"><a href="#功能3：消费" class="headerlink" title="功能3：消费"></a>功能3：消费</h5><p>其实功能3和功能2基本一致，复制过来加个用途就能套用，<code>if</code>判断条件改为判断余额够不够</p>
-<pre class="line-numbers language-none"><code class="language-none">case &quot;3&quot;:
-    System.out.print(&quot;消费用途:&quot;);
-    note&#x3D;sc.next();
-    System.out.print(&quot;消费金额:&quot;);
-    money&#x3D;sc.nextDouble();
-    while (true) &#123;
-        if (money&gt;balance)&#123;
-            System.out.println(&quot;余额不足，请重新输入&quot;);
-            System.out.print(&quot;消费用途:&quot;);
-            note&#x3D;sc.next();
-            System.out.print(&quot;消费金额:&quot;);
-            money&#x3D;sc.nextDouble();
-        &#125;
-        else &#123;
-            break;
-        &#125;
-    &#125;
-    balance-&#x3D;money;
-    date&#x3D;new Date();
-    details+&#x3D;&quot;\n&quot;+note+&quot;\t-&quot;+money+&quot;\t&quot;+sdf.format(date)+&quot;\t&quot;+balance;
-    System.out.println(details);
-    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>下面来写添加房屋的功能</p>
+<p>在<code>HouseView</code>中加入<code>addHouse</code>的方法，显示界面和接收输入</p>
+<pre class="line-numbers language-none"><code class="language-none">public void addhouse()&#123;
+    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;添加房屋&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+    System.out.print(&quot;姓名：&quot;);
+    String name &#x3D; Utility.readString(8);
+    System.out.print(&quot;电话：&quot;);
+    String phone &#x3D; Utility.readString(12);
+    System.out.print(&quot;地址：&quot;);
+    String address &#x3D; Utility.readString(16);
+    System.out.print(&quot;月租：&quot;);
+    int rent &#x3D; Utility.readInt();
+    System.out.print(&quot;状态：&quot;);
+    String state &#x3D; Utility.readString(3);
 
-<h5 id="功能4：退出"><a href="#功能4：退出" class="headerlink" title="功能4：退出"></a>功能4：退出</h5><p>常规的退出，利用前面的<code>loop</code>来退出零钱通系统</p>
-<pre class="line-numbers language-none"><code class="language-none">System.out.println(&quot;是否确认退出，请输入y&#x2F;n&quot;);
-note&#x3D;sc.next();
-while(true)&#123;
-    if (note.equals(&quot;y&quot;))&#123;
-        loop&#x3D;false;
-        break;
-    &#125;
-    else if(note.equals(&quot;n&quot;))&#123;
-        loop&#x3D;true;
-        break;
-    &#125;
-    else &#123;
-        System.out.println(&quot;输入有误，请重新输入&quot;);
-        note&#x3D;sc.next();
-    &#125;
-&#125;
-break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    House newHouse &#x3D; new House(0, name, phone, address, rent, state);
 
-<h5 id="程序退出"><a href="#程序退出" class="headerlink" title="程序退出"></a>程序退出</h5><p>美观一点加一句退出项目</p>
-<pre class="line-numbers language-none"><code class="language-none">System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;选择退出了零钱通项目&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="三、面向对象编写"><a href="#三、面向对象编写" class="headerlink" title="三、面向对象编写"></a>三、面向对象编写</h3><p>下面用OOP来写，其实直接照搬就好了</p>
-<h5 id="创建属性"><a href="#创建属性" class="headerlink" title="创建属性"></a>创建属性</h5><p>同样的创建属性就不用过多赘述了</p>
-<h5 id="创建方法"><a href="#创建方法" class="headerlink" title="创建方法"></a>创建方法</h5><p>写了四个方法：</p>
-<p><code>details：输出流水</code></p>
-<p><code>income：本质就是功能2的代码，下同</code></p>
-<p><code>pay：功能3</code></p>
-<p><code>exit：功能4</code></p>
-<p>这里要注意的一点是方法里的退出是<code>return</code>不是<code>break</code></p>
-<p>所以稍加更改就可以使用了</p>
-<h5 id="创建主类"><a href="#创建主类" class="headerlink" title="创建主类"></a>创建主类</h5><p>再创建一个主类<code>SmallchangeApp</code>，完成对<code>SmallChangeSysOOP</code>的调用即可</p>
-<p><img src="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/image-20221109174850541.png" alt="image-20221109174850541"></p>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>OOP更加灵活，用方法来管理各个功能，更容易维护和拓展</p>
+<p>这里发现了一个问题，添加的房屋需要编号…还有房屋是否添加成功的判断</p>
+<p>所以我们再<code>HouseService</code>里又添加了两个属性，用来记录房屋个数和ID自增长</p>
+<pre class="line-numbers language-none"><code class="language-none">private int houseNums&#x3D;1;
+private int idCounter&#x3D;1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>然后继续编写<code>add</code>方法用来判断房屋是否添加成功，同时更新新增房屋的编号</p>
+<pre class="line-numbers language-none"><code class="language-none">public boolean add(House newHouse)&#123;
+    if (houseNums &#x3D;&#x3D; houses.length)&#123;
+        System.out.println(&quot;房屋添加失败&quot;);
+        return false;
+    &#125;
+    houses[houseNums++]&#x3D;newHouse;
+    newHouse.setId(++idCounter);		#ID自增长
+    return true;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>之后就可以在addhouse里调用add方法了</p>
+<pre class="line-numbers language-none"><code class="language-none">if (houseService.add(newHouse))&#123;
+    System.out.println(&quot;添加房屋成功&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>未完待续…</p>
 
                 
             </div>
@@ -563,7 +760,7 @@ break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dongzhengru.github.io/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/">http://dongzhengru.github.io/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/</a>
+                    <a href="http://dongzhengru.github.io/2022/11/10/Java%E5%85%A5%E9%97%A8-%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE/">http://dongzhengru.github.io/2022/11/10/Java%E5%85%A5%E9%97%A8-%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -772,9 +969,10 @@ break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/11/10/Java%E5%85%A5%E9%97%A8-%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
@@ -792,9 +990,9 @@ break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -803,6 +1001,7 @@ break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -821,13 +1020,13 @@ break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2022/11/09/Java%E5%85%A5%E9%97%A8-%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="第一次搭建博客">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java入门-零钱通项目">
                         
-                        <span class="card-title">第一次搭建博客</span>
+                        <span class="card-title">Java入门-零钱通项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -851,8 +1050,8 @@ break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
+                    <a href="/tags/Java%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">Java入门项目</span>
                     </a>
                     
                 </div>
