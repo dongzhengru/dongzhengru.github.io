@@ -106,28 +106,6 @@
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -205,28 +183,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -390,6 +346,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                Java学习笔记
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -397,7 +362,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-11
+                    2022-11-13
                 </div>
                 
 
@@ -406,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    2.1k
                 </div>
                 
 
@@ -441,7 +406,7 @@
 <h3 id="一、类变量"><a href="#一、类变量" class="headerlink" title="一、类变量"></a>一、类变量</h3><h5 id="什么是类变量"><a href="#什么是类变量" class="headerlink" title="什么是类变量"></a>什么是类变量</h5><p>类变量也叫静态变量&#x2F;静态属性，是该类的所有对象共享的变量，任何一个该类的对象去访问它时，取到的都是相同的值，同样任何一个该类的对象去修改它时，修改的也是同一个变量。</p>
 <p>…</p>
 <p>下面来看一段代码</p>
-<pre class="line-numbers language-none"><code class="language-none">class Child&#123;
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Child&#123;
     private String name;
     public static int count&#x3D;0;	#定义一个变量count，是一个类变量（静态变量），被Child类的所有对象实例共享
     public Child(String name) &#123;
@@ -474,7 +439,7 @@
 <p>加上<code>static</code>的变量称为类变量或静态变量，否则称为实例变量&#x2F;普通变量&#x2F;非静态变量</p>
 <p>类变量就先记录这么多吧…</p>
 <h3 id="二、类方法"><a href="#二、类方法" class="headerlink" title="二、类方法"></a>二、类方法</h3><p>类方法也叫静态方法</p>
-<p>当方法使用了static修饰后，该方法就是静态方法，静态方法就可以访问静态属性&#x2F;变量</p>
+<p>当方法使用了<code>static</code>修饰后，该方法就是静态方法，静态方法就可以访问静态属性&#x2F;变量</p>
 <p>静态方法不能调用非静态变量</p>
 <p>形式如下：</p>
 <ul>
@@ -493,12 +458,70 @@
 <p>如果我们希望不创建实例，也可以调用某个方法，这时候静态方法就是一个很好的使用场景</p>
 <h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ul>
 <li>类方法也和类变量一致，随着类的加载而加载，将结构信息存储在方法区</li>
-<li>类方法中无this的参数，而普通方法中隐含着this的参数</li>
+<li>类方法中无<code>this</code>的参数，而普通方法中隐含着<code>this</code>的参数</li>
 <li>类方法可以通过类名调用，也可以通过对象名调用，不能通过类名调用</li>
-<li>类方法中不允许使用和对象有关的关键字，比如this和super。但普通方法可以使用</li>
+<li>类方法中不允许使用和对象有关的关键字，比如<code>this</code>和<code>super</code>。但普通方法可以使用</li>
 <li>类方法（静态方法）中只能访问静态变量和静态方法，但普通方法即可以访问普通变量和方法，也可以访问静态变量和方法（但必须遵守访问权限）</li>
 </ul>
-<p>未完待续…</p>
+<h3 id="三、理解main方法语法"><a href="#三、理解main方法语法" class="headerlink" title="三、理解main方法语法"></a>三、理解main方法语法</h3><h5 id="深入理解main方法"><a href="#深入理解main方法" class="headerlink" title="深入理解main方法"></a>深入理解main方法</h5><p>解释<code>main</code>方法的形式</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static void main(String[] args) &#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li><code>main</code>方法时虚拟机调用的</li>
+<li>Java虚拟机需要调用类的<code>main()</code>方法，所以该方法的访问权限必须是<code>public</code></li>
+<li>Java虚拟机在执行<code>main()</code>方法时不必创建对象，所以该方法必须是<code>static</code></li>
+<li>该方法接收<code>String</code>类型的数组参数，该数组中保存执行Java命令时传递给所运行的类的参数</li>
+<li>main的形参，就是把<code>Java 运行的类名 参数1 参数2 参数3</code>中最后面的参数形成一个数组带进去，而且可以在主方法里再取出来</li>
+</ol>
+<p>同上面的类方法，在<code>main()</code>方法中，我们可以直接调用<code>main()</code>方法所在类的静态方法或静态属性，但是，不能直接访问该类的非静态成员，必须创建该类的一个实例对象后，才能通过这个对象去访问类中的非静态成员</p>
+<h5 id="main动态传值"><a href="#main动态传值" class="headerlink" title="main动态传值"></a>main动态传值</h5><p>刚刚上面讲的<code>Java 运行的类名 参数1 参数2 参数3</code>是在命令行中的传值方法</p>
+<p>下面我们用下面这段代码来说一下idea里怎么进行传递参数</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        for (int i&#x3D;0;i&lt; args.length;i++)&#123;
+            System.out.println(&quot;args[&quot;+i+&quot;]&#x3D;&quot;+args[i]);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们在idea右上角选择<code>Edit Configurations</code></p>
+<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112150649553.png" alt="image-20221112150649553"></p>
+<p>在<code>Program arguments</code>里写入参数即可</p>
+<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112150845084.png" alt="image-20221112150845084"></p>
+<p>如图，这里我们传入<code>杭州 宁波 温州</code>看看效果</p>
+<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112151018475.png" alt="image-20221112151018475"></p>
+<p>运行后可以看到我们成功传入了参数</p>
+<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112151111789.png" alt="image-20221112151111789"></p>
+<p>main方法就到这…</p>
+<h3 id="四、代码块"><a href="#四、代码块" class="headerlink" title="四、代码块"></a>四、代码块</h3><h5 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h5><p>代码块又称为初始化块，属于类中的成员[即 是类的一部分]，类似于方法，将逻辑语句封装在方法体中，通过<code>&#123;&#125;</code>包围起来。</p>
+<p>但和方法不同，没有方法名，没有返回，没有参数，只有方法体，而且不用通过对象或类显式调用，而是加载类时，或创建对象时隐式调用。</p>
+<h5 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h5><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">[修饰符]&#123;
+	代码
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>语法说明：</p>
+<ol>
+<li>修饰符可选，要写的话，也只能写<code>static</code></li>
+<li>代码块分为两类，使用<code>static</code>修饰的叫静态代码块，没有<code>static</code>修饰的，叫普通代码块</li>
+<li>逻辑语句可以为任何逻辑语句（输入、输出、方法调用、循环、判断等）</li>
+<li><code>;</code>号可以写上，也可以省略</li>
+</ol>
+<p>代码块的好处：</p>
+<ol>
+<li>相当于另外一种形式的构造器（对构造器的补充机制），可以做初始化的操作，顺序优先于构造器</li>
+<li>如果多个构造器中都有重复的语句，可以抽取到初始化块中，提高代码的重用性</li>
+</ol>
+<h5 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h5><ol>
+<li><p>static代码块也叫静态代码块，作用就是对类进行初始化，而且它随着类的加载而执行，并且只会执行一次。如果是普通代码块，每创建一个对象，就执行。</p>
+</li>
+<li><p>类什么时候被加载</p>
+<p>①创建对象实例时（new）</p>
+<p>②创建子类对象实例，父类也会被加载</p>
+<p>③使用类的静态成员时（静态属性、静态方法）</p>
+</li>
+<li><p>普通的代码块，在创建对象实例时，会被隐式的调用。被创建一次，就会调用一次。如果只是使用类的静态成员时，普通代码块并不会执行。</p>
+</li>
+</ol>
 
                 
             </div>
@@ -525,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dongzhengru.github.io/2022/11/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/">http://dongzhengru.github.io/2022/11/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://dongzhengru.github.io/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/">http://dongzhengru.github.io/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -739,7 +762,7 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/11/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/">
+                <a href="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
@@ -751,17 +774,21 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            OOP笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-13
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            dongzhengru
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    Java学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -797,7 +824,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            第二个简单却又不那么简单的项目
                         
                     </div>
                     <div class="publish-info">
@@ -806,8 +833,12 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            dongzhengru
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    Java项目
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -884,6 +915,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <!-- TOC 悬浮按钮. -->
 
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
@@ -892,8 +929,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('5'),
-            headingSelector: 'h3, h5'
+            collapseDepth: Number('1'),
+            headingSelector: 'h2, h3, h4, h5, h6'
         });
 
         // modify the toc link href to support Chinese.
@@ -905,7 +942,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h3, h5').each(function () {
+        $('#articleContent').children('h2, h3, h4, h5, h6').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -922,6 +959,41 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             }
         });
 
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
         
     });
 </script>
@@ -971,7 +1043,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="3778678"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'
@@ -979,7 +1051,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                    order='random'
                    preload='auto'
                    volume='0.7'
-                   list-folded='true'
+                   list-folded='false'
         >
         </meting-js>
     </div>
@@ -1002,7 +1074,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.9k</span>&nbsp;字
+                class="white-color">7.7k</span>&nbsp;字
             
             
             
