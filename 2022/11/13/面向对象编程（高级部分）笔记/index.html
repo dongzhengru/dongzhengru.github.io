@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    4k
                 </div>
                 
 
@@ -391,7 +391,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一个新的阶段，我就边学边记点笔记吧</p>
+                <p>边学边记…</p>
 <p>具体要学习的知识如下</p>
 <ul>
 <li>类变量和类方法</li>
@@ -667,20 +667,66 @@ class E&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h5 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h5><ol>
-<li><p>final修饰的属性又叫常量，一般用 XX_XX_XX来命名</p>
+<li><p><code>final</code>修饰的属性又叫常量，一般用 <code>XX_XX_XX</code>来命名</p>
 </li>
-<li><p>final修饰的属性在定义时，必须赋初值，并且以后不能再修改，赋值可以在如下位置之一</p>
-<p>①定义时：如public final double TAX_RATE&#x3D;0.08;</p>
+<li><p><code>final</code>修饰的属性在定义时，必须赋初值，并且以后不能再修改，赋值可以在如下位置之一</p>
+<p>①定义时：如<code>public final double TAX_RATE=0.08;</code></p>
 <p>②在构造器中</p>
 <p>③在代码块中</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public final double TAX_RATE&#x3D;0.01;		#第一种
+public final double TAX_RATE2;			#第二种
+public final double TAX_RATE3;			#第三种
+public AA()&#123;			#第二种：在构造器中赋初值
+    TAX_RATE2&#x3D;1.1;			
+&#125;
+&#123;						#第三种：在代码块中赋初值
+    TAX_RATE3&#x3D;2.2;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>如果final修饰的属性是静态的，则初始化的位置只能是</p>
+<li><p>如果<code>final</code>修饰的属性是静态的，则初始化的位置只能是</p>
 <p>①定义时</p>
 <p>②在静态代码块，不能再构造器中赋值</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static final double TAX_RATE&#x3D;0.01;
+public static final double TAX_RATE2;	#报错
+public static final double TAX_RATE3;	
+public BB()&#123;
+    TAX_RATE2&#x3D;1.1;		#构造器不能赋值（静态）
+&#125;
+
+static &#123;
+    TAX_RATE3&#x3D;2.2;		#静态代码块可以赋值
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>final类不能继承，但是可以实例化对象</p>
+<li><p><code>final</code>类不能继承，但是可以实例化对象</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FinalDetail01 &#123;
+    public static void main(String[] args) &#123;
+        CC cc &#x3D; new CC();		#实例化对象不会报错
+    &#125;
+&#125;
+final class CC&#123;&#125;		#final类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>如果类不是final类，但是含有final方法，则该方法虽然不能重写，但是可以被继承</p>
+<li><p>如果类不是final类，但是含有<code>final</code>方法，则该方法虽然不能重写，但是可以被继承</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FinalDetail01 &#123;
+    public static void main(String[] args) &#123;
+        new EE().cal();		#可以正常调用
+    &#125;
+&#125;
+class DD&#123;
+    public final void cal()&#123;	#此处含有final方法
+        System.out.println(&quot;cal()方法&quot;);
+    &#125;
+&#125;
+class EE extends DD&#123;&#125;	#可以继承DD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+<li><p>一般来说，如果一个类已经是final类了，就没有必要再将方法修饰成final方法</p>
+</li>
+<li><p>final不能修饰构造方法（即构造器）</p>
+</li>
+<li><p>final和static往往搭配使用，效率更高，不会导致类加载，底层编译器做了优化处理</p>
+</li>
+<li><p>包装类（Integer，Double，Float，Boolean等都是final），String也是final类</p>
 </li>
 </ol>
 
@@ -1235,7 +1281,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">9.6k</span>&nbsp;字
             
             
             
@@ -1499,6 +1545,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
