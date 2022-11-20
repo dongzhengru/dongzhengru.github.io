@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    5.9k
                 </div>
                 
 
@@ -485,13 +485,13 @@
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>我们在idea右上角选择<code>Edit Configurations</code></p>
-<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112150649553.png" alt="image-20221112150649553"></p>
+<p><img src="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112150649553.png" alt="image-20221112150649553"></p>
 <p>在<code>Program arguments</code>里写入参数即可</p>
-<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112150845084.png" alt="image-20221112150845084"></p>
+<p><img src="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112150845084.png" alt="image-20221112150845084"></p>
 <p>如图，这里我们传入<code>杭州 宁波 温州</code>看看效果</p>
-<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112151018475.png" alt="image-20221112151018475"></p>
+<p><img src="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112151018475.png" alt="image-20221112151018475"></p>
 <p>运行后可以看到我们成功传入了参数</p>
-<p><img src="/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112151111789.png" alt="image-20221112151111789"></p>
+<p><img src="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221112151111789.png" alt="image-20221112151111789"></p>
 <p>main方法就到这…</p>
 <h3 id="四、代码块"><a href="#四、代码块" class="headerlink" title="四、代码块"></a>四、代码块</h3><h5 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h5><p>代码块又称为初始化块，属于类中的成员[即 是类的一部分]，类似于方法，将逻辑语句封装在方法体中，通过<code>&#123;&#125;</code>包围起来。</p>
 <p>但和方法不同，没有方法名，没有返回，没有参数，只有方法体，而且不用通过对象或类显式调用，而是加载类时，或创建对象时隐式调用。</p>
@@ -725,10 +725,264 @@ class EE extends DD&#123;&#125;	#可以继承DD<span aria-hidden="true" class="l
 <li><p>final不能修饰构造方法（即构造器）</p>
 </li>
 <li><p>final和static往往搭配使用，效率更高，不会导致类加载，底层编译器做了优化处理</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static void main(String[] args) &#123;
+        System.out.println(BBB.num);	#输出999和BBB被执行
+&#125;
+class BBB&#123;
+    public static int num&#x3D;999;
+    static&#123;
+        System.out.println(&quot;BBB 的静态代码块被执行&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static void main(String[] args) &#123;
+    System.out.println(BBB.num);		#仅输出999
+&#125;
+class BBB&#123;
+    public final static int num&#x3D;999;
+    static&#123;
+        System.out.println(&quot;BBB 的静态代码块被执行&quot;);	#此句不输出
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>包装类（Integer，Double，Float，Boolean等都是final），String也是final类</p>
 </li>
 </ol>
+<h3 id="七、抽象类"><a href="#七、抽象类" class="headerlink" title="七、抽象类"></a>七、抽象类</h3><h5 id="引入抽象类"><a href="#引入抽象类" class="headerlink" title="引入抽象类"></a>引入抽象类</h5><p>当父类的某些方法，需要声明，但是又不确定如何实现时，可以用<code>abstract</code>关键字来修饰方法，将其声明为抽象方法，那么这个类就是抽象类</p>
+<h5 id="具体写法"><a href="#具体写法" class="headerlink" title="具体写法"></a>具体写法</h5><p>这里要注意，如果要将方法设为抽象方法，那么需要在类的前面也加上<code>abstract</code>，否则会报错，同时抽象方法没有方法体，否则会报错</p>
+<p>具体格式为<code>访问修饰符 abstract 返回类型 方法名(参数列表);</code></p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class Animal&#123;				#类的前面加上abstract
+    private String name;
+
+    public Animal(String name) &#123;
+        this.name &#x3D; name;
+    &#125;
+    public abstract void eat();		#抽象方法
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>而且，抽象类一般来说会被继承，由其子类来实现抽象方法</p>
+<h5 id="使用细节"><a href="#使用细节" class="headerlink" title="使用细节"></a>使用细节</h5><ol>
+<li><p>抽象类不能被实例化</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Abstract02 &#123;
+    public static void main(String[] args) &#123;
+        new A();	#此处报错，不能实例化抽象类
+    &#125;
+&#125;
+abstract class A&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>抽象类不一定要包含<code>abstract</code>方法，换句话说，抽象类可以没有<code>abstract</code>方法，还可以有实现的方法</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class A&#123;&#125;		#用上面的代码来举例，此处并不会报错<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class A&#123;
+	public void hi()&#123;
+		System.out.println(&quot;hi&quot;);
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>一旦类包含了<code>abstract</code>方法，则这个类必须声明为<code>abstract</code></p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class B&#123;
+    public abstract void hi();		#报错，因为包含了抽象方法，所以必须是抽象类
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>abstract</code>只能修饰类和方法，不能修饰属性和其他</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class C&#123;
+    public abstract int a;			#报错，abstract只能修饰类和方法
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>抽象类可以有任意成员【抽象类本质还是类】，比如：非抽象方法、构造器、静态属性等等</p>
+</li>
+<li><p>抽象方法不能有主体，即不能实现（也就是开头所说的不能有方法体）</p>
+</li>
+<li><p>如果一个类继承了抽象类，则它必须实现抽象类的所有抽象方法，除非它自己也声明为<code>abstract</code>类</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class E&#123;
+    public abstract void hi();
+&#125;
+class F extends E&#123;&#125;		#这里继承了E抽象类，但没有实现所有的抽象方法，所以会报错<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class E&#123;
+    public abstract void hi();
+&#125;
+abstract class F extends E&#123;&#125;	#那么我们在子类前加上abstract就不会报错<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class E&#123;
+    public abstract void hi();
+&#125;
+class G extends E&#123;
+    @Override
+    public void hi() &#123;&#125;			#所谓实现方法，就是要有方法体（空也可以）
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>抽象方法不能用private、final、static来修饰，因为这些关键字都是和重写相违背的</p>
+</li>
+</ol>
+<h5 id="抽象模板设计"><a href="#抽象模板设计" class="headerlink" title="抽象模板设计"></a>抽象模板设计</h5><p>首先我们来看下面一段代码（分别在三个文件中）</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class TestTemplate &#123;
+    public static void main(String[] args) &#123;
+        AA aa &#x3D; new AA();
+        aa.job();
+        BB bb &#x3D; new BB();
+        bb.job();
+    &#125;
+&#125;
+public class AA &#123;
+    public void job()&#123;
+        long start&#x3D;System.currentTimeMillis();
+        long num&#x3D;0;
+        for (long i&#x3D;1;i&lt;&#x3D;800000;i++)&#123;
+            num+&#x3D;i;
+        &#125;
+        long end&#x3D;System.currentTimeMillis();
+        System.out.println(&quot;执行时间：&quot;+(end-start));
+    &#125;
+&#125;
+public class BB &#123;
+    public void job()&#123;
+        long start&#x3D;System.currentTimeMillis();
+        long num&#x3D;0;
+        for (long i&#x3D;1;i&lt;&#x3D;80000;i++)&#123;
+            num*&#x3D;i;
+        &#125;
+        long end&#x3D;System.currentTimeMillis();
+        System.out.println(&quot;执行时间：&quot;+(end-start));
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里提一句，<code>currentTimeMillis()</code>可以以毫秒为单位获取系统当前的时间，返回<code>long</code>数据类型的数据</p>
+<p>我们发现，AA类和BB类有相当一部分是重复的，下面进行改进，体会一下抽象模板设计</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class TestTemplate &#123;
+    public static void main(String[] args) &#123;
+        AA aa &#x3D; new AA();
+        aa.calculateTime();
+        BB bb &#x3D; new BB();
+        bb.calculateTime();
+    &#125;
+&#125;
+abstract public class Template &#123;
+    public abstract void job();
+    public void calculateTime()&#123;
+        long start&#x3D;System.currentTimeMillis();
+        job();			#动态机制绑定到AA或BB的job执行
+        long end&#x3D;System.currentTimeMillis();
+        System.out.println(&quot;任务执行时间：&quot;+(end-start));
+    &#125;
+&#125;
+public class AA extends Template&#123;
+    public void job()&#123;		#重写抽象类里的job
+        long num&#x3D;0;
+        for (long i&#x3D;1;i&lt;&#x3D;800000;i++)&#123;
+            num+&#x3D;i;
+        &#125;
+    &#125;
+&#125;
+public class BB extends Template &#123;
+    public void job()&#123;		##重写抽象类里的job
+        long num&#x3D;0;
+        for (long i&#x3D;1;i&lt;&#x3D;80000;i++)&#123;
+            num*&#x3D;i;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从上面的实践可以看出来抽象类对代码的复用性和简洁性还是有很大帮助的…</p>
+<h3 id="八、接口"><a href="#八、接口" class="headerlink" title="八、接口"></a>八、接口</h3><h5 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h5><p>看下面的代码模拟一下现实中的<code>USB</code>接口…</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Interface01 &#123;
+    public static void main(String[] args) &#123;
+        Phone phone &#x3D; new Phone();
+        Camera camera &#x3D; new Camera();
+        Computer computer &#x3D; new Computer();
+        computer.work(phone);      #把手机接入到计算机
+        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+        computer.work(camera);      #把相机接入到计算机
+    &#125;
+&#125;
+public interface UsbInterface &#123;     #接口中abstract和public可以省略
+    public void start();
+    public void stop();
+&#125;
+public class Phone implements UsbInterface&#123; 	#Phone类实现了UsbInterface
+    @Override
+    public void start() &#123;		#实现UsbInterface接口规定&#x2F;声明的方法
+        System.out.println(&quot;手机开始工作...&quot;);
+    &#125;
+    @Override
+    public void stop() &#123;		#实现UsbInterface接口规定&#x2F;声明的方法
+        System.out.println(&quot;手机停止工作...&quot;);
+    &#125;
+&#125;
+public class Camera implements UsbInterface&#123; 	#Camera类实现了UsbInterface
+    @Override
+    public void start() &#123;
+        System.out.println(&quot;相机开始工作了...&quot;);
+    &#125;
+    @Override
+    public void stop() &#123;
+        System.out.println(&quot;相机停止工作了...&quot;);
+    &#125;
+&#125;
+public class Computer &#123;
+    public void work(UsbInterface usbInterface)&#123;	#计算机工作
+        usbInterface.start();
+        usbInterface.stop();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>Phone</code>类实现了<code>UsbInterface</code>，即<code>Phone</code>类需要实现<code>UsbInterface</code>接口规定&#x2F;声明的方法</p>
+<h5 id="基本介绍-2"><a href="#基本介绍-2" class="headerlink" title="基本介绍"></a>基本介绍</h5><p>接口就是给出一些没有实现的方法，封装到一起，到某个类要使用的时候，在根据具体情况把这些方法写出来。语法：</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">interface 接口名&#123;
+	&#x2F;&#x2F;属性
+	&#x2F;&#x2F;方法（1.抽象方法 2.默认实现方法 3.静态方法）
+&#125;
+class 类名 implements 接口&#123;
+	&#x2F;&#x2F;自己属性
+	&#x2F;&#x2F;自己方法
+	&#x2F;&#x2F;必须实现接口的抽象方法
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意：在<code>JDK7.0</code>前，接口里的所有方法都没有方法体，即都是抽象方法。<code>JDK8.0</code>后接口可以有静态方法，默认方法，也就是说接口中可以有方法的具体实现</p>
+<p>默认实现方法，需要使用<code>default</code>关键字修饰，如下</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">default public void ok()&#123;
+    System.out.println(&quot;OK&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h5><p>接口不能被实例化</p>
+<p>接口中所有的方法是public方法，接口中抽象方法，可以不用abstract修饰</p>
+<p>一个普通类实现接口，就必须将该接口的所有方法都实现</p>
+<p>这里有一个快捷键，在下图报错的位置，使用Alt+Enter，选择Implement methods即可快速导入接口中所有要实现的方法</p>
+<p><img src="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221120190852637.png" alt="image-20221120190852637"></p>
+<p>抽象类实现接口，可以不用实现接口的方法</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">interface IA&#123;
+    void say();
+    void hi();
+&#125;
+abstract class Tiger implements IA&#123;&#125;		#不会报错，抽象类可以不实现<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>一个类同时可以实现多个接口</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">interface IB&#123;
+    void hi();
+&#125;
+interface IC&#123;
+    void say();
+&#125;
+class Pig implements IB,IC&#123;		#Pig类实现了IB和IC两个接口
+    public void hi() &#123;&#125;
+    public void say() &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接口中的属性，只能是final的，而且是public static final修饰符</p>
+<p>接口中属性的访问形式：接口名.属性名</p>
+<p>接口不能继承其他的类，但是可以继承多个别的接口</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">interface IB&#123;
+    void hi();
+&#125;
+interface IC&#123;
+    void say();
+&#125;
+class Pig implements IB,IC&#123;		#同时实现了多个接口，用逗号分隔
+    public void hi()&#123;&#125;
+    public void say()&#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接口的修饰符只能是public和默认，这点和类的修饰符是一样的</p>
 
                 
             </div>
@@ -1281,7 +1535,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.6k</span>&nbsp;字
+                class="white-color">11.6k</span>&nbsp;字
             
             
             
