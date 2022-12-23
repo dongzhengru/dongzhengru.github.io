@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.2k
                 </div>
                 
 
@@ -403,147 +403,147 @@
 <p>因为当一个方法是<code>static</code>时，就是静态方法</p>
 <p>静态方法可以直接通过类名调用</p>
 <p>源码如下</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package utils;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">utils</span><span class="token punctuation">;</span>
 
 
-&#x2F;**
+<span class="token comment">/**
 	工具类的作用:
 	处理各种情况的用户输入，并且能够按照程序员的需求，得到用户的控制台输入。
-*&#x2F;
+*/</span>
 
-import java.util.*;
-&#x2F;**
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+<span class="token comment">/**
 	
-*&#x2F;
-public class Utility &#123;
-	&#x2F;&#x2F;静态属性。。。
-    private static Scanner scanner &#x3D; new Scanner(System.in);
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Utility</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">//静态属性。。。</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Scanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-    &#x2F;**
+    <span class="token comment">/**
      * 功能：读取键盘输入的一个菜单选项，值：1——5的范围
      * @return 1——5
-     *&#x2F;
-    public static char readMenuSelection() &#123;
-        char c;
-        for (; ; ) &#123;
-            String str &#x3D; readKeyBoard(1, false);&#x2F;&#x2F;包含一个字符的字符串
-            c &#x3D; str.charAt(0);&#x2F;&#x2F;将字符串转换成字符char类型
-            if (c !&#x3D; &#39;1&#39; &amp;&amp; c !&#x3D; &#39;2&#39; &amp;&amp; 
-                c !&#x3D; &#39;3&#39; &amp;&amp; c !&#x3D; &#39;4&#39; &amp;&amp; c !&#x3D; &#39;5&#39;) &#123;
-                System.out.print(&quot;选择错误，请重新输入：&quot;);
-            &#125; else break;
-        &#125;
-        return c;
-    &#125;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">char</span> <span class="token function">readMenuSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">char</span> c<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//包含一个字符的字符串</span>
+            c <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//将字符串转换成字符char类型</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">!=</span> <span class="token char">'1'</span> <span class="token operator">&amp;&amp;</span> c <span class="token operator">!=</span> <span class="token char">'2'</span> <span class="token operator">&amp;&amp;</span> 
+                c <span class="token operator">!=</span> <span class="token char">'3'</span> <span class="token operator">&amp;&amp;</span> c <span class="token operator">!=</span> <span class="token char">'4'</span> <span class="token operator">&amp;&amp;</span> c <span class="token operator">!=</span> <span class="token char">'5'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"选择错误，请重新输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
      
-    &#x2F;**
+    <span class="token comment">/**
      * 功能：读取键盘输入的一个字符
      * @return 一个字符
-     *&#x2F;
-    public static char readChar() &#123;
-        String str &#x3D; readKeyBoard(1, false);&#x2F;&#x2F;就是一个字符
-        return str.charAt(0);
-    &#125;
-    &#x2F;**
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">char</span> <span class="token function">readChar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//就是一个字符</span>
+        <span class="token keyword">return</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
      * 功能：读取键盘输入的一个字符，如果直接按回车，则返回指定的默认值；否则返回输入的那个字符
      * @param defaultValue 指定的默认值
      * @return 默认值或输入的字符
-     *&#x2F;
+     */</span>
     
-    public static char readChar(char defaultValue) &#123;
-        String str &#x3D; readKeyBoard(1, true);&#x2F;&#x2F;要么是空字符串，要么是一个字符
-        return (str.length() &#x3D;&#x3D; 0) ? defaultValue : str.charAt(0);
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">char</span> <span class="token function">readChar</span><span class="token punctuation">(</span><span class="token keyword">char</span> defaultValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//要么是空字符串，要么是一个字符</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> defaultValue <span class="token operator">:</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
     
-    &#x2F;**
+    <span class="token comment">/**
      * 功能：读取键盘输入的整型，长度小于2位
      * @return 整数
-     *&#x2F;
-    public static int readInt() &#123;
-        int n;
-        for (; ; ) &#123;
-            String str &#x3D; readKeyBoard(10, false);&#x2F;&#x2F;一个整数，长度&lt;&#x3D;10位
-            try &#123;
-                n &#x3D; Integer.parseInt(str);&#x2F;&#x2F;将字符串转换成整数
-                break;
-            &#125; catch (NumberFormatException e) &#123;
-                System.out.print(&quot;数字输入错误，请重新输入：&quot;);
-            &#125;
-        &#125;
-        return n;
-    &#125;
-    &#x2F;**
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//一个整数，长度&lt;=10位</span>
+            <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+                n <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//将字符串转换成整数</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NumberFormatException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"数字输入错误，请重新输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
      * 功能：读取键盘输入的 整数或默认值，如果直接回车，则返回默认值，否则返回输入的整数
      * @param defaultValue 指定的默认值
      * @return 整数或默认值
-     *&#x2F;
-    public static int readInt(int defaultValue) &#123;
-        int n;
-        for (; ; ) &#123;
-            String str &#x3D; readKeyBoard(10, true);
-            if (str.equals(&quot;&quot;)) &#123;
-                return defaultValue;
-            &#125;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">readInt</span><span class="token punctuation">(</span><span class="token keyword">int</span> defaultValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> defaultValue<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
     		
-    		&#x2F;&#x2F;异常处理...
-            try &#123;
-                n &#x3D; Integer.parseInt(str);
-                break;
-            &#125; catch (NumberFormatException e) &#123;
-                System.out.print(&quot;数字输入错误，请重新输入：&quot;);
-            &#125;
-        &#125;
-        return n;
-    &#125;
+    		<span class="token comment">//异常处理...</span>
+            <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+                n <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NumberFormatException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"数字输入错误，请重新输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
      
-    &#x2F;**
+    <span class="token comment">/**
      * 功能：读取键盘输入的指定长度的字符串
      * @param limit 限制的长度
      * @return 指定长度的字符串
-     *&#x2F;
+     */</span>
      
-    public static String readString(int limit) &#123;
-        return readKeyBoard(limit, false);
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">readString</span><span class="token punctuation">(</span><span class="token keyword">int</span> limit<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span>limit<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
      
-    &#x2F;**
+    <span class="token comment">/**
      * 功能：读取键盘输入的指定长度的字符串或默认值，如果直接回车，返回默认值，否则返回字符串
      * @param limit 限制的长度
      * @param defaultValue 指定的默认值
      * @return 指定长度的字符串
-     *&#x2F;
+     */</span>
     
-    public static String readString(int limit, String defaultValue) &#123;
-        String str &#x3D; readKeyBoard(limit, true);
-        return str.equals(&quot;&quot;)? defaultValue : str;
-    &#125;
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">readString</span><span class="token punctuation">(</span><span class="token keyword">int</span> limit<span class="token punctuation">,</span> <span class="token class-name">String</span> defaultValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span>limit<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> str<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token operator">?</span> defaultValue <span class="token operator">:</span> str<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
  
 
-	&#x2F;**
+	<span class="token comment">/**
 	 * 功能：读取键盘输入的确认选项，Y或N
 	 * 将小的功能，封装到一个方法中.
 	 * @return Y或N
-	 *&#x2F;
-	public static char readConfirmSelection() &#123;
-	    System.out.println(&quot;请输入你的选择(Y&#x2F;N): 请小心选择&quot;);
-	    char c;
-	    for (; ; ) &#123;&#x2F;&#x2F;无限循环
-	    	&#x2F;&#x2F;在这里，将接受到字符，转成了大写字母
-	    	&#x2F;&#x2F;y &#x3D;&gt; Y n&#x3D;&gt;N
-	        String str &#x3D; readKeyBoard(1, false).toUpperCase();
-	        c &#x3D; str.charAt(0);
-	        if (c &#x3D;&#x3D; &#39;Y&#39; || c &#x3D;&#x3D; &#39;N&#39;) &#123;
-	            break;
-	        &#125; else &#123;
-	            System.out.print(&quot;选择错误，请重新输入：&quot;);
-	        &#125;
-	    &#125;
-	    return c;
-	&#125;
+	 */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">char</span> <span class="token function">readConfirmSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入你的选择(Y/N): 请小心选择"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token keyword">char</span> c<span class="token punctuation">;</span>
+	    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//无限循环</span>
+	    	<span class="token comment">//在这里，将接受到字符，转成了大写字母</span>
+	    	<span class="token comment">//y => Y n=>N</span>
+	        <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	        c <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	        <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token char">'Y'</span> <span class="token operator">||</span> c <span class="token operator">==</span> <span class="token char">'N'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	            <span class="token keyword">break</span><span class="token punctuation">;</span>
+	        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+	            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"选择错误，请重新输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	        <span class="token punctuation">&#125;</span>
+	    <span class="token punctuation">&#125;</span>
+	    <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
 	 
-	&#x2F;**
+	<span class="token comment">/**
 	 * 功能： 读取一个字符串
 	 * @param limit 读取的长度
 	 * @param blankReturn 如果为true ,表示 可以读空字符串。 
@@ -551,35 +551,35 @@ public class Utility &#123;
 	 * 			
 	 *	如果输入为空，或者输入大于limit的长度，就会提示重新输入。
 	 * @return
-	 *&#x2F;
-	private static String readKeyBoard(int limit, boolean blankReturn) &#123;
+	 */</span>
+	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token keyword">int</span> limit<span class="token punctuation">,</span> <span class="token keyword">boolean</span> blankReturn<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	    
-		&#x2F;&#x2F;定义了字符串
-		String line &#x3D; &quot;&quot;;
+		<span class="token comment">//定义了字符串</span>
+		<span class="token class-name">String</span> line <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 	 
-		&#x2F;&#x2F;scanner.hasNextLine() 判断有没有下一行
-	    while (scanner.hasNextLine()) &#123;
-	        line &#x3D; scanner.nextLine();&#x2F;&#x2F;读取这一行
+		<span class="token comment">//scanner.hasNextLine() 判断有没有下一行</span>
+	    <span class="token keyword">while</span> <span class="token punctuation">(</span>scanner<span class="token punctuation">.</span><span class="token function">hasNextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	        line <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//读取这一行</span>
 	       
-			&#x2F;&#x2F;如果line.length&#x3D;0, 即用户没有输入任何内容，直接回车
-			if (line.length() &#x3D;&#x3D; 0) &#123;
-	            if (blankReturn) return line;&#x2F;&#x2F;如果blankReturn&#x3D;true,可以返回空串
-	            else continue; &#x2F;&#x2F;如果blankReturn&#x3D;false,不接受空串，必须输入内容
-	        &#125;
+			<span class="token comment">//如果line.length=0, 即用户没有输入任何内容，直接回车</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	            <span class="token keyword">if</span> <span class="token punctuation">(</span>blankReturn<span class="token punctuation">)</span> <span class="token keyword">return</span> line<span class="token punctuation">;</span><span class="token comment">//如果blankReturn=true,可以返回空串</span>
+	            <span class="token keyword">else</span> <span class="token keyword">continue</span><span class="token punctuation">;</span> <span class="token comment">//如果blankReturn=false,不接受空串，必须输入内容</span>
+	        <span class="token punctuation">&#125;</span>
 	 
-			&#x2F;&#x2F;如果用户输入的内容大于了 limit，就提示重写输入  
-			&#x2F;&#x2F;如果用户如的内容 &gt;0 &lt;&#x3D; limit ,我就接受
-	        if (line.length() &lt; 1 || line.length() &gt; limit) &#123;
-	            System.out.print(&quot;输入长度（不能大于&quot; + limit + &quot;）错误，请重新输入：&quot;);
-	            continue;
-	        &#125;
-	        break;
-	    &#125;
+			<span class="token comment">//如果用户输入的内容大于了 limit，就提示重写输入  </span>
+			<span class="token comment">//如果用户如的内容 >0 &lt;= limit ,我就接受</span>
+	        <span class="token keyword">if</span> <span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token operator">||</span> line<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> limit<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"输入长度（不能大于"</span> <span class="token operator">+</span> limit <span class="token operator">+</span> <span class="token string">"）错误，请重新输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+	        <span class="token punctuation">&#125;</span>
+	        <span class="token keyword">break</span><span class="token punctuation">;</span>
+	    <span class="token punctuation">&#125;</span>
 	 
-	    return line;
-	&#125;
+	    <span class="token keyword">return</span> line<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="三、完成domain类-x2F-数据层"><a href="#三、完成domain类-x2F-数据层" class="headerlink" title="三、完成domain类&#x2F;数据层"></a>三、完成domain类&#x2F;数据层</h3><p>一个<code>House</code>对象表示一个房屋信息</p>
 <p><code>House</code>类有哪些属性，可以通过给出的界面分析得到</p>
@@ -587,292 +587,292 @@ public class Utility &#123;
 <p><img src="/2022/11/10/%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE-Java/image-20221109195916485.png" alt="image-20221109195916485"></p>
 <p>即<code>编号</code> <code>房主</code> <code>电话</code> <code>地址</code> <code>月租</code> <code>状态（未出租/已出租）</code></p>
 <p>在<code>House.java</code>中创建相应的属性，再创建构造器和<code>setter</code>，<code>getter</code>方法</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private int id;
-private String name;
-private String phone;
-private String address;
-private int rent;
-private String state;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> phone<span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> address<span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token keyword">int</span> rent<span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> state<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>利用快捷键<code>alt+insert</code>创建<code>toString</code>，根据界面重写<code>toString</code>方法</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@Override
-public String toString() &#123;
-    return id +
-            &quot;\t\t&quot; + name +
-            &quot;\t&quot; + phone +
-            &quot;\t\t&quot; + address +
-            &quot;\t&quot; + rent +
-            &quot;\t&quot; + state;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> id <span class="token operator">+</span>
+            <span class="token string">"\t\t"</span> <span class="token operator">+</span> name <span class="token operator">+</span>
+            <span class="token string">"\t"</span> <span class="token operator">+</span> phone <span class="token operator">+</span>
+            <span class="token string">"\t\t"</span> <span class="token operator">+</span> address <span class="token operator">+</span>
+            <span class="token string">"\t"</span> <span class="token operator">+</span> rent <span class="token operator">+</span>
+            <span class="token string">"\t"</span> <span class="token operator">+</span> state<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="四、完成View类-x2F-界面"><a href="#四、完成View类-x2F-界面" class="headerlink" title="四、完成View类&#x2F;界面"></a>四、完成View类&#x2F;界面</h3><p>功能说明：</p>
 <p>用户打开软件，可以看到主菜单，可以退出软件</p>
 <p>主菜单和上一个零钱通项目里的主菜单一致，我们这里也使用<code>do-while</code>循环和<code>loop</code>来控制进入和退出</p>
 <p>直接上代码</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">do &#123;
-    System.out.println(&quot;\n&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;房屋出租系统&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    System.out.println(&quot;\t\t1.新 增 房 源&quot;);
-    System.out.println(&quot;\t\t2.查 找 房 源&quot;);
-    System.out.println(&quot;\t\t3.删 除 房 屋 信 息&quot;);
-    System.out.println(&quot;\t\t4.修 改 房 屋 信 息&quot;);
-    System.out.println(&quot;\t\t5.房 屋 列 表&quot;);
-    System.out.println(&quot;\t\t6.退      出&quot;);
-    System.out.print(&quot;请输入你的选择（1-6）&quot;);
-    key &#x3D; Utility.readChar();
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\n=========房屋出租系统========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t1.新 增 房 源"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t2.查 找 房 源"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t3.删 除 房 屋 信 息"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t4.修 改 房 屋 信 息"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t5.房 屋 列 表"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t6.退      出"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"请输入你的选择（1-6）"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    key <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readChar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    switch (key)&#123;
-        case &#39;1&#39;:
-        	break;
-        case &#39;2&#39;:
-        	break;
-        case &#39;3&#39;:
-        	break;
-        case &#39;4&#39;:
-        	break;
-        case &#39;5&#39;:
-        	break;
-        case &#39;6&#39;:
-        	loop &#x3D; false;
-        	break;
-    &#125;
-&#125;while (loop);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">case</span> <span class="token char">'1'</span><span class="token operator">:</span>
+        	<span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token char">'2'</span><span class="token operator">:</span>
+        	<span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token char">'3'</span><span class="token operator">:</span>
+        	<span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token char">'4'</span><span class="token operator">:</span>
+        	<span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token char">'5'</span><span class="token operator">:</span>
+        	<span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token char">'6'</span><span class="token operator">:</span>
+        	loop <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        	<span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">while</span> <span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此时我们可以在<code>HouseRentApp</code>里调用这个<code>mainMeun</code>方法了</p>
 <p>直接使用一行代码完成调用，不需要再去接收了，啰嗦且麻烦</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">new HouseView().mainMenu();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">HouseView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mainMenu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="五、完成service类-x2F-业务层"><a href="#五、完成service类-x2F-业务层" class="headerlink" title="五、完成service类&#x2F;业务层"></a>五、完成service类&#x2F;业务层</h3><p>响应<code>HouseView</code>的调用</p>
 <p>完成对房屋信息的各种操作（增删改查&#x2F;crud）（用数组实现）</p>
 <h5 id="新增房屋"><a href="#新增房屋" class="headerlink" title="新增房屋"></a>新增房屋</h5><p>定义<code>House[]</code>，保存<code>House</code>对象，顺便再初始化一个对象用于测试列表</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private House[] houses;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token class-name">House</span><span class="token punctuation">[</span><span class="token punctuation">]</span> houses<span class="token punctuation">;</span>
 
-public HouseService(int size)&#123;
-	houses&#x3D;new House[size];
+<span class="token keyword">public</span> <span class="token class-name">HouseService</span><span class="token punctuation">(</span><span class="token keyword">int</span> size<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	houses<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">House</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
 	
-	houses[0]&#x3D;new House(1,&quot;Jack&quot;,&quot;188&quot;,&quot;杭电路&quot;,20000,&quot;已出租&quot;)
+	houses<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">House</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"Jack"</span><span class="token punctuation">,</span><span class="token string">"188"</span><span class="token punctuation">,</span><span class="token string">"杭电路"</span><span class="token punctuation">,</span><span class="token number">20000</span><span class="token punctuation">,</span><span class="token string">"已出租"</span><span class="token punctuation">)</span>
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>编写<code>list()</code>用来返回所有房屋信息</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public House[] lists()&#123;
-	return houses;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">House</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">lists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> houses<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>在<code>HouseView</code>中调用<code>list</code>输出房屋列表</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private HouseService houseService &#x3D;new HouseService(10);
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token class-name">HouseService</span> houseService <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HouseService</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-public void listHouse()&#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;房屋列表&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    System.out.println(&quot;编号\t\t房主\t\t电话\t\t地址\t\t月租\t\t状态（未出租&#x2F;已出租）&quot;);
-    House[] houses &#x3D; houseService.list();
-    for (int i &#x3D; 0; i &lt; houses.length; i++) &#123;
-        if (houses[i] &#x3D;&#x3D; null)&#123;				&#x2F;&#x2F;加入判断机制避免输出空的数组
-            break;
-        &#125;
-        System.out.println(houses[i]);		&#x2F;&#x2F;House类中toString重写生效
-    &#125;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;房屋列表显示完毕&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">listHouse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========房屋列表========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"编号\t\t房主\t\t电话\t\t地址\t\t月租\t\t状态（未出租/已出租）"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">House</span><span class="token punctuation">[</span><span class="token punctuation">]</span> houses <span class="token operator">=</span> houseService<span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> houses<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>houses<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>				<span class="token comment">//加入判断机制避免输出空的数组</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>houses<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//House类中toString重写生效</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"========房屋列表显示完毕========"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>下面来写添加房屋的功能</p>
 <p>在<code>HouseView</code>中加入<code>addHouse</code>的方法，显示界面和接收输入</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public void addhouse()&#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;添加房屋&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    System.out.print(&quot;姓名：&quot;);
-    String name &#x3D; Utility.readString(8);
-    System.out.print(&quot;电话：&quot;);
-    String phone &#x3D; Utility.readString(12);
-    System.out.print(&quot;地址：&quot;);
-    String address &#x3D; Utility.readString(16);
-    System.out.print(&quot;月租：&quot;);
-    int rent &#x3D; Utility.readInt();
-    System.out.print(&quot;状态：&quot;);
-    String state &#x3D; Utility.readString(3);
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addhouse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========添加房屋========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"姓名："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"电话："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> phone <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"地址："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> address <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"月租："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> rent <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"状态："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> state <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    House newHouse &#x3D; new House(0, name, phone, address, rent, state);
+    <span class="token class-name">House</span> newHouse <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">House</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> phone<span class="token punctuation">,</span> address<span class="token punctuation">,</span> rent<span class="token punctuation">,</span> state<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里发现了一个问题，添加的房屋需要编号…还有房屋是否添加成功的判断</p>
 <p>所以我们再<code>HouseService</code>里又添加了两个属性，用来记录房屋个数和<code>ID</code>自增长</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private int houseNums&#x3D;1;
-private int idCounter&#x3D;1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">int</span> houseNums<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token keyword">int</span> idCounter<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>然后继续编写<code>add</code>方法用来判断房屋是否添加成功，返回<code>boolean</code>，同时更新新增房屋的编号</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public boolean add(House newHouse)&#123;
-    if (houseNums &#x3D;&#x3D; houses.length)&#123;
-        System.out.println(&quot;房屋添加失败&quot;);
-        return false;
-    &#125;
-    houses[houseNums++]&#x3D;newHouse;
-    newHouse.setId(++idCounter);		&#x2F;&#x2F;ID自增长
-    return true;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">House</span> newHouse<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>houseNums <span class="token operator">==</span> houses<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"房屋添加失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    houses<span class="token punctuation">[</span>houseNums<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>newHouse<span class="token punctuation">;</span>
+    newHouse<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token operator">++</span>idCounter<span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//ID自增长</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>之后就可以在<code>addhouse</code>里调用<code>add</code>方法了</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">if (houseService.add(newHouse))&#123;
-    System.out.println(&quot;添加房屋成功&quot;);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>houseService<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>newHouse<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"添加房屋成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h5 id="删除房屋"><a href="#删除房屋" class="headerlink" title="删除房屋"></a>删除房屋</h5><p>在<code>HouseView</code>中编写<code>delHouse()</code>，用于显示界面和接收输入的需要删除的<code>ID</code></p>
 <p>因为我们还没写del方法，所以先写个界面</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public void delhouse()&#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;删除房屋&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    System.out.println(&quot;请输入待删除房屋的编号（-1退出）&quot;);
-    int delId &#x3D; Utility.readInt();
-    if (delId &#x3D;&#x3D; -1) &#123;
-        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;放弃删除房屋信息&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-        return;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">delhouse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========删除房屋========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入待删除房屋的编号（-1退出）"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> delId <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>delId <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"==========放弃删除房屋信息========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在<code>HouseService</code>中编写方法<code>del</code>，完成房屋删除任务，然后返回一个<code>boolean</code></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public boolean del(int delId)&#123;
-    int index&#x3D;-1;
-    for (int i&#x3D;0;i&lt;houseNums;i++)&#123;
-        if (delId&#x3D;&#x3D;houses[i].getId())&#123;
-            index&#x3D;i;	&#x2F;&#x2F;使用index记录i
-        &#125;
-    &#125;
-    if (index &#x3D;&#x3D; -1) &#123;	&#x2F;&#x2F;说明delId在数组中不存在
-        return false;
-    &#125;
-    for (int i&#x3D;index;i&lt;houseNums-1;i++)&#123;
-         houses[i]&#x3D;houses[i+1];
-    &#125;
-    houses[--houseNums]&#x3D;null;	&#x2F;&#x2F;把原来存在的房屋信息的最后一个设置为null，并且房屋数减一
-    return true;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">del</span><span class="token punctuation">(</span><span class="token keyword">int</span> delId<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> index<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>houseNums<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>delId<span class="token operator">==</span>houses<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            index<span class="token operator">=</span>i<span class="token punctuation">;</span>	<span class="token comment">//使用index记录i</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	<span class="token comment">//说明delId在数组中不存在</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>index<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>houseNums<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+         houses<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>houses<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    houses<span class="token punctuation">[</span><span class="token operator">--</span>houseNums<span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>	<span class="token comment">//把原来存在的房屋信息的最后一个设置为null，并且房屋数减一</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里要注意不能忘记删除完后更新<code>houseNums</code>，如果高中学过技术，那么对下面采用覆盖的方式删除房屋信息可能能够更快地理解…</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">for (int i&#x3D;index;i&lt;houseNums-1;i++)&#123;
-     houses[i]&#x3D;houses[i+1];
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>index<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>houseNums<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+     houses<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>houses<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>至此我们就能在<code>HouseView</code>中调用<code>del</code>方法了，不过在这之前，我们先写个确认删除的功能</p>
 <p>因为我们在最开始引入了韩老师的工具类，所以我们直接调用<code>readConfirmSelection()</code>即可</p>
 <p>这里也放一下<code>readConfirmSelection()</code>方法的源码</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static char readConfirmSelection() &#123;
-    System.out.println(&quot;请输入你的选择(Y&#x2F;N): 请小心选择&quot;);
-    char c;
-    for (; ; ) &#123;&#x2F;&#x2F;无限循环
-        &#x2F;&#x2F;在这里，将接受到字符，转成了大写字母
-        &#x2F;&#x2F;y &#x3D;&gt; Y n&#x3D;&gt;N
-        String str &#x3D; readKeyBoard(1, false).toUpperCase();
-        c &#x3D; str.charAt(0);
-        if (c &#x3D;&#x3D; &#39;Y&#39; || c &#x3D;&#x3D; &#39;N&#39;) &#123;
-            break;
-        &#125; else &#123;
-            System.out.print(&quot;选择错误，请重新输入：&quot;);
-        &#125;
-    &#125;
-    return c;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">char</span> <span class="token function">readConfirmSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入你的选择(Y/N): 请小心选择"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> c<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//无限循环</span>
+        <span class="token comment">//在这里，将接受到字符，转成了大写字母</span>
+        <span class="token comment">//y => Y n=>N</span>
+        <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token function">readKeyBoard</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        c <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token char">'Y'</span> <span class="token operator">||</span> c <span class="token operator">==</span> <span class="token char">'N'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"选择错误，请重新输入："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>确认的功能和调用<code>del</code>方法的代码如下</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">char choice &#x3D; Utility.readConfirmSelection();
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">char</span> choice <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readConfirmSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-if (choice &#x3D;&#x3D; &#39;Y&#39;) &#123;		&#x2F;&#x2F;确认删除房屋
-    if (houseService.del(delId)) &#123;
-        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;删除房屋信息成功&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    &#125;
-    else &#123;
-        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;房屋编号不存在，删除失败&quot;);
-    &#125;
-&#125;
-else &#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;放弃删除房屋信息&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>choice <span class="token operator">==</span> <span class="token char">'Y'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>		<span class="token comment">//确认删除房屋</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>houseService<span class="token punctuation">.</span><span class="token function">del</span><span class="token punctuation">(</span>delId<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========删除房屋信息成功========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========房屋编号不存在，删除失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========放弃删除房屋信息========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>至此，删除房屋的功能就完成了</p>
 <h5 id="退出功能"><a href="#退出功能" class="headerlink" title="退出功能"></a>退出功能</h5><p>这个没什么好说的，为了统一一下视觉效果，我们在<code>HouseView</code>里单独写一个<code>exit</code>方法</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public void exit()&#123;
-    char c&#x3D;Utility.readConfirmSelection();
-    if (c&#x3D;&#x3D;&#39;Y&#39;)&#123;
-        loop&#x3D;false;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">char</span> c<span class="token operator">=</span><span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readConfirmSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>c<span class="token operator">==</span><span class="token char">'Y'</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        loop<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后在<code>switch</code>里调用就完事了</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">case &#39;6&#39;:
-    exit();
-    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">case</span> <span class="token char">'6'</span><span class="token operator">:</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="查找功能"><a href="#查找功能" class="headerlink" title="查找功能"></a>查找功能</h5><p>在<code>HouseView</code>里编写<code>findHouse</code>方法，同上先编写界面的输出</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public void findHouse()&#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;查找房屋信息&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    System.out.println(&quot;请输入要查找的id&quot;);
-    int findId &#x3D; Utility.readInt();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">findHouse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========查找房屋信息========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请输入要查找的id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> findId <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后去编写要被调用的方法，我们取名为<code>findById</code></p>
 <p>跟之前写的<code>add</code>、<code>del</code>也类似，找到返回<code>houses[i]</code>，没找到则返回空</p>
 <p>比较简单，代码如下</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public House findById(int findId)&#123;
-    for (int i&#x3D;0;i&lt;houseNums;i++)&#123;
-        if (findId&#x3D;&#x3D;houses[i].getId())&#123;
-            return houses[i];
-        &#125;
-    &#125;
-    return null;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">House</span> <span class="token function">findById</span><span class="token punctuation">(</span><span class="token keyword">int</span> findId<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>houseNums<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>findId<span class="token operator">==</span>houses<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> houses<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后去<code>findHouse</code>里调用，逻辑还是比较清晰的</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">if (house !&#x3D; null)&#123;
-    System.out.println(house);
-&#125;else &#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;查找房屋信息id不存在&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>house <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>house<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========查找房屋信息id不存在========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最后不要忘了在<code>switch</code>里调用哈</p>
 <p>写到这里已经0点了，但是只还剩下最后一个修改功能，那就写写完吧</p>
 <h5 id="修改功能"><a href="#修改功能" class="headerlink" title="修改功能"></a>修改功能</h5><p>在<code>HouseView</code>里编写<code>update</code>方法</p>
 <p>先接收个待修改房屋的编号，并且确定是否要修改</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;修改房屋信息&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-System.out.println(&quot;请选择待修改房屋编号（-1表示退出）&quot;);
-int updateId &#x3D; Utility.readInt();
-if (updateId &#x3D;&#x3D; -1)&#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;放弃修改房屋信息&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    return;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========修改房屋信息========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"请选择待修改房屋编号（-1表示退出）"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> updateId <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>updateId <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========放弃修改房屋信息========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>同时也不要忘了验证编号是否存在</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">House house &#x3D; houseService.findById(updateId);
-if (house &#x3D;&#x3D; null) &#123;
-    System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;修改房屋信息编号不存在&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-    return;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">House</span> house <span class="token operator">=</span> houseService<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>updateId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>house <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"=========修改房屋信息编号不存在========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后就是输出+修改信息，代码有点长，但其实都是重复的</p>
 <p>这里直接回车的话就认定为不修改，并且规定长度限制</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">System.out.print(&quot;姓名(&quot; + house.getName() + &quot;): &quot;);
-String name &#x3D; Utility.readString(8, &quot;&quot;);
-if (!&quot;&quot;.equals(name)) &#123;
-    house.setName(name);
-&#125;
-System.out.print(&quot;电话(&quot; + house.getPhone() + &quot;):&quot;);
-String phone &#x3D; Utility.readString(12, &quot;&quot;);
-if (!&quot;&quot;.equals(phone)) &#123;
-    house.setPhone(phone);
-&#125;
-System.out.print(&quot;地址(&quot; + house.getAddress() + &quot;):&quot;);
-String address &#x3D; Utility.readString(18, &quot;&quot;);
-if (!&quot;&quot;.equals(address)) &#123;
-    house.setAddress(address);
-&#125;
-System.out.print(&quot;租金(&quot; + house.getRent() + &quot;):&quot;);
-int rent &#x3D; Utility.readInt(-1);
-if (rent !&#x3D; -1) &#123;
-    house.setRent(rent);
-&#125;
-System.out.println(&quot;状态(&quot; + house.getState() + &quot;):&quot;);
-String state &#x3D; Utility.readString(3, &quot;&quot;);
-if (!&quot;&quot;.equals(state)) &#123;
-    house.setState(state);
-&#125;
-System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;修改房屋信息成功&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"姓名("</span> <span class="token operator">+</span> house<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"): "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token string">""</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    house<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"电话("</span> <span class="token operator">+</span> house<span class="token punctuation">.</span><span class="token function">getPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> phone <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token string">""</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    house<span class="token punctuation">.</span><span class="token function">setPhone</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"地址("</span> <span class="token operator">+</span> house<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> address <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token string">""</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    house<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"租金("</span> <span class="token operator">+</span> house<span class="token punctuation">.</span><span class="token function">getRent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> rent <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readInt</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>rent <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    house<span class="token punctuation">.</span><span class="token function">setRent</span><span class="token punctuation">(</span>rent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"状态("</span> <span class="token operator">+</span> house<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> state <span class="token operator">=</span> <span class="token class-name">Utility</span><span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token string">""</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    house<span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"===========修改房屋信息成功========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><p>房屋出租是我尝试的第二个项目，文章开头说比零钱通会复杂一点</p>
 <p>好像是复杂了亿点…….</p>
@@ -1433,7 +1433,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.6k</span>&nbsp;字
+                class="white-color">13.5k</span>&nbsp;字
             
             
             

@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1k
                 </div>
                 
 
@@ -403,110 +403,110 @@
 <p>如下图</p>
 <p><img src="/2022/11/09/%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE-Java/image-20221109171009202.png" alt="image-20221109171009202"></p>
 <h3 id="二、面向过程编写"><a href="#二、面向过程编写" class="headerlink" title="二、面向过程编写"></a>二、面向过程编写</h3><h5 id="创建一些基本的属性"><a href="#创建一些基本的属性" class="headerlink" title="创建一些基本的属性"></a>创建一些基本的属性</h5><p>因为刚入门所以采用比较简单的字符串拼接方法来显示流水</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Boolean loop&#x3D;true;		&#x2F;&#x2F;判断是否退出程序
-Scanner sc&#x3D;new Scanner(System.in);
-String key&#x3D;&quot;&quot;;			&#x2F;&#x2F;接收数字选择菜单
-String details&#x3D;&quot;---------------零钱通明细---------------\n&quot;;
-double money&#x3D;0;			&#x2F;&#x2F;接收金额
-double balance&#x3D;0;		&#x2F;&#x2F;余额
-String note&#x3D;&quot;&quot;;			&#x2F;&#x2F;消费用途<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Boolean</span> loop<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>		<span class="token comment">//判断是否退出程序</span>
+<span class="token class-name">Scanner</span> sc<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> key<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>			<span class="token comment">//接收数字选择菜单</span>
+<span class="token class-name">String</span> details<span class="token operator">=</span><span class="token string">"---------------零钱通明细---------------\n"</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> money<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>			<span class="token comment">//接收金额</span>
+<span class="token keyword">double</span> balance<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>		<span class="token comment">//余额</span>
+<span class="token class-name">String</span> note<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>			<span class="token comment">//消费用途</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>因为流水要显示日期，所以临时浅学了个<code>Data</code></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Date date&#x3D;null;
-SimpleDateFormat sdf&#x3D;new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);		&#x2F;&#x2F;日期格式化<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Date</span> date<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token class-name">SimpleDateFormat</span> sdf<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//日期格式化</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>写一个<code>do-while</code>来嵌套整个系统</p>
-<pre class="line-numbers language-none"><code class="language-none">do &#123;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
     
-&#125;while (loop);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span class="token keyword">while</span> <span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>输出主菜单并且获取用户选择<code>Key</code></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;零钱通菜单&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-System.out.println(&quot;\t\t\t1 零钱通明细&quot;);
-System.out.println(&quot;\t\t\t2 收益入账&quot;);
-System.out.println(&quot;\t\t\t3 消费&quot;);
-System.out.println(&quot;\t\t\t4 退    出&quot;);
-System.out.print(&quot;请选择(1-4):&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"===============零钱通菜单==============="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t\t1 零钱通明细"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t\t2 收益入账"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t\t3 消费"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\t\t\t4 退    出"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"请选择(1-4):"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>用<code>switch</code>语句来分别实现4个菜单选项的功能</p>
-<pre class="line-numbers language-none"><code class="language-none">switch (key)&#123;
-    case &quot;1&quot;:
-    case &quot;2&quot;:
-    case &quot;3&quot;:
-    case &quot;4&quot;:
-    default:
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">switch</span> <span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token string">"1"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"2"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"3"</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">"4"</span><span class="token operator">:</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="功能1：零钱通明细"><a href="#功能1：零钱通明细" class="headerlink" title="功能1：零钱通明细"></a>功能1：零钱通明细</h5><p>因为采用字符串拼接所以明细相对简单，直接输出字符串<code>details</code>即可</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">case &quot;1&quot;:
-    System.out.println(details);
-    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">case</span> <span class="token string">"1"</span><span class="token operator">:</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>details<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="功能2：收益入账"><a href="#功能2：收益入账" class="headerlink" title="功能2：收益入账"></a>功能2：收益入账</h5><p>虽然比较长但其实都是一些简单的功能，<code>if</code>用来判断充值是否为正数，主要就是<code>details</code>拼接的问题</p>
-<pre class="line-numbers language-none"><code class="language-none">case &quot;2&quot;:
-    System.out.print(&quot;收益入账金额:&quot;);
-    money&#x3D;sc.nextDouble();		&#x2F;&#x2F;接收入账金额
-    while (true) &#123;
-        if (money&lt;&#x3D;0)&#123;			&#x2F;&#x2F;金额验证是否有效
-            System.out.println(&quot;输入有误，请重新输入&quot;);
-            System.out.print(&quot;收益入账金额:&quot;);
-            money&#x3D;sc.nextDouble();
-        &#125;
-        else &#123;
-            break;
-        &#125;
-    &#125;
-    balance+&#x3D;money;				&#x2F;&#x2F;余额计算
-    date&#x3D;new Date();			&#x2F;&#x2F;时间获取
-    details+&#x3D;&quot;\n收益入账\t+&quot;+money+&quot;\t&quot;+sdf.format(date)+&quot;\t&quot;+balance;	&#x2F;&#x2F;拼接字符串
-    System.out.println(details);
-    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">case</span> <span class="token string">"2"</span><span class="token operator">:</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"收益入账金额:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    money<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//接收入账金额</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>money<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>			<span class="token comment">//金额验证是否有效</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"输入有误，请重新输入"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"收益入账金额:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            money<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    balance<span class="token operator">+=</span>money<span class="token punctuation">;</span>				<span class="token comment">//余额计算</span>
+    date<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment">//时间获取</span>
+    details<span class="token operator">+=</span><span class="token string">"\n收益入账\t+"</span><span class="token operator">+</span>money<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>sdf<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>balance<span class="token punctuation">;</span>	<span class="token comment">//拼接字符串</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>details<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="功能3：消费"><a href="#功能3：消费" class="headerlink" title="功能3：消费"></a>功能3：消费</h5><p>其实功能3和功能2基本一致，复制过来加个用途就能套用，<code>if</code>判断条件改为判断余额够不够</p>
-<pre class="line-numbers language-none"><code class="language-none">case &quot;3&quot;:
-    System.out.print(&quot;消费用途:&quot;);
-    note&#x3D;sc.next();
-    System.out.print(&quot;消费金额:&quot;);
-    money&#x3D;sc.nextDouble();
-    while (true) &#123;
-        if (money&gt;balance)&#123;
-            System.out.println(&quot;余额不足，请重新输入&quot;);
-            System.out.print(&quot;消费用途:&quot;);
-            note&#x3D;sc.next();
-            System.out.print(&quot;消费金额:&quot;);
-            money&#x3D;sc.nextDouble();
-        &#125;
-        else &#123;
-            break;
-        &#125;
-    &#125;
-    balance-&#x3D;money;
-    date&#x3D;new Date();
-    details+&#x3D;&quot;\n&quot;+note+&quot;\t-&quot;+money+&quot;\t&quot;+sdf.format(date)+&quot;\t&quot;+balance;
-    System.out.println(details);
-    break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">case</span> <span class="token string">"3"</span><span class="token operator">:</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"消费用途:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    note<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"消费金额:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    money<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>money<span class="token operator">></span>balance<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"余额不足，请重新输入"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"消费用途:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            note<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"消费金额:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            money<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    balance<span class="token operator">-=</span>money<span class="token punctuation">;</span>
+    date<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    details<span class="token operator">+=</span><span class="token string">"\n"</span><span class="token operator">+</span>note<span class="token operator">+</span><span class="token string">"\t-"</span><span class="token operator">+</span>money<span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>sdf<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\t"</span><span class="token operator">+</span>balance<span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>details<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="功能4：退出"><a href="#功能4：退出" class="headerlink" title="功能4：退出"></a>功能4：退出</h5><p>常规的退出，利用前面的<code>loop</code>来退出零钱通系统</p>
-<pre class="line-numbers language-none"><code class="language-none">System.out.println(&quot;是否确认退出，请输入y&#x2F;n&quot;);
-note&#x3D;sc.next();
-while(true)&#123;
-    if (note.equals(&quot;y&quot;))&#123;
-        loop&#x3D;false;
-        break;
-    &#125;
-    else if(note.equals(&quot;n&quot;))&#123;
-        loop&#x3D;true;
-        break;
-    &#125;
-    else &#123;
-        System.out.println(&quot;输入有误，请重新输入&quot;);
-        note&#x3D;sc.next();
-    &#125;
-&#125;
-break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"是否确认退出，请输入y/n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+note<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>note<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"y"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        loop<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>note<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        loop<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"输入有误，请重新输入"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        note<span class="token operator">=</span>sc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="程序退出"><a href="#程序退出" class="headerlink" title="程序退出"></a>程序退出</h5><p>美观一点加一句退出项目</p>
-<pre class="line-numbers language-none"><code class="language-none">System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;选择退出了零钱通项目&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"===========选择退出了零钱通项目==========="</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="三、面向对象编写"><a href="#三、面向对象编写" class="headerlink" title="三、面向对象编写"></a>三、面向对象编写</h3><p>下面用OOP来写，其实直接照搬就好了</p>
 <h5 id="创建属性"><a href="#创建属性" class="headerlink" title="创建属性"></a>创建属性</h5><p>同样的创建属性就不用过多赘述了</p>
@@ -808,7 +808,7 @@ break;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2022/11/09/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
@@ -1070,7 +1070,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.6k</span>&nbsp;字
+                class="white-color">13.5k</span>&nbsp;字
             
             
             

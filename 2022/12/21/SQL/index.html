@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    855
+                    844
                 </div>
                 
 
@@ -409,53 +409,53 @@
 <p><img src="/2022/12/21/SQL/image-20221221163849483.png" alt="image-20221221163849483"></p>
 <h3 id="三、DDL-操作数据库、表"><a href="#三、DDL-操作数据库、表" class="headerlink" title="三、DDL-操作数据库、表"></a>三、DDL-操作数据库、表</h3><h5 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h5><ol>
 <li><p>查询</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show databases;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>创建数据库</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create database 数据库名称;
-create database if not exists 数据库名称;	-- 判断否存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">database</span> 数据库名称<span class="token punctuation">;</span>
+<span class="token keyword">create</span> <span class="token keyword">database</span> <span class="token keyword">if</span> <span class="token operator">not</span> <span class="token keyword">exists</span> 数据库名称<span class="token punctuation">;</span>	<span class="token comment">-- 判断否存在</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>删除数据库</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database 数据库名称;
-drop database if exists 数据库名称;	-- 判断是否存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">database</span> 数据库名称<span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">database</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> 数据库名称<span class="token punctuation">;</span>	<span class="token comment">-- 判断是否存在</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>使用数据库</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select database();
-use 数据库名称;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token keyword">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> 数据库名称<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <h5 id="操作数据表"><a href="#操作数据表" class="headerlink" title="操作数据表"></a>操作数据表</h5><ol>
 <li><p>查询当前数据库下所有表名称</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show tables;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>查询表结构</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">desc 表名称;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">desc</span> 表名称<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>创建表（注意最后一行末尾，不能加逗号）</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create table 表名 (
-			字段名1 数据类型1,
-            字段名2 数据类型2,
-            ...
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> 表名 <span class="token punctuation">(</span>
+			字段名<span class="token number">1</span> 数据类型<span class="token number">1</span><span class="token punctuation">,</span>
+            字段名<span class="token number">2</span> 数据类型<span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
             字段名n 数据类型n
-);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>删除表</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop table 表名;
-drop table if exists 表名;	--  判断是否存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">table</span> 表名<span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> 表名<span class="token punctuation">;</span>	<span class="token comment">--  判断是否存在</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>修改表名</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 rename to 新的表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">rename</span> <span class="token keyword">to</span> 新的表名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>添加一列</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 add 列名 数据类型;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">add</span> 列名 数据类型<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>修改数据类型</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 modify 列名 新数据类型;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">modify</span> 列名 新数据类型<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>修改列名和数据类型</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 change 列名 新列名 新数据类型;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 change 列名 新列名 新数据类型<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>删除列</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 drop 列名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">drop</span> 列名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p><code>MySQL</code>数据类型可以分为以下三类：</p>
 <ul>
@@ -465,58 +465,58 @@ drop table if exists 表名;	--  判断是否存在<span aria-hidden="true" clas
 </ul>
 <p><img src="/2022/12/21/SQL/image-20221221172849958.png" alt="image-20221221172849958"></p>
 <p>PS:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">score double(总长度，小数点后保留的位数)
-score double(5,2)		-- 0~100 2（5为3+2）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">score <span class="token keyword">double</span><span class="token punctuation">(</span>总长度，小数点后保留的位数<span class="token punctuation">)</span>
+score <span class="token keyword">double</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>		<span class="token comment">-- 0~100 2（5为3+2）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">name char(10)	-- 定长
-name varchar(10)	-- 变长
--- 如果将“张三”字符存入两种类型，char占用10个字符空间，varchar占用2个字符空间
--- char存储的性能高 浪费空间 varchar存储性能低 节约空间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">name <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>	<span class="token comment">-- 定长</span>
+name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>	<span class="token comment">-- 变长</span>
+<span class="token comment">-- 如果将“张三”字符存入两种类型，char占用10个字符空间，varchar占用2个字符空间</span>
+<span class="token comment">-- char存储的性能高 浪费空间 varchar存储性能低 节约空间</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="四、DML-增删改数据"><a href="#四、DML-增删改数据" class="headerlink" title="四、DML-增删改数据"></a>四、DML-增删改数据</h3><ol>
 <li><p>给指定列添加数据</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名(列名1,列名2,...)  values(值1,值2,...);
-insert into stu(id,name) values(1,&#39;张三&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> 表名<span class="token punctuation">(</span>列名<span class="token number">1</span><span class="token punctuation">,</span>列名<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>  <span class="token keyword">values</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu<span class="token punctuation">(</span>id<span class="token punctuation">,</span>name<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'张三'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>给全部列添加数据</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名 values(值1,值2,...);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> 表名 <span class="token keyword">values</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>批量添加数据</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名(列名1,列名2,...)  values(值1,值2,...),(值1,值2,...),(值1,值2,...)...;
-insert into 表名  values(值1,值2,...),(值1,值2,...),(值1,值2,...)...;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> 表名<span class="token punctuation">(</span>列名<span class="token number">1</span><span class="token punctuation">,</span>列名<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>  <span class="token keyword">values</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> 表名  <span class="token keyword">values</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>修改表数据</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update 表名 set 列名1&#x3D;值1,列名2&#x3D;值2,... where 条件;		-- 修改语句中如果不加where条件，则将所有数据都修改
-update stu set birthday &#x3D; &#39;1999-12-12&#39;, score &#x3D; 99.99 where name &#x3D; &#39;张三&#39;;	-- 案例<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> 表名 <span class="token keyword">set</span> 列名<span class="token number">1</span><span class="token operator">=</span>值<span class="token number">1</span><span class="token punctuation">,</span>列名<span class="token number">2</span><span class="token operator">=</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">where</span> 条件<span class="token punctuation">;</span>		<span class="token comment">-- 修改语句中如果不加where条件，则将所有数据都修改</span>
+<span class="token keyword">update</span> stu <span class="token keyword">set</span> birthday <span class="token operator">=</span> <span class="token string">'1999-12-12'</span><span class="token punctuation">,</span> score <span class="token operator">=</span> <span class="token number">99.99</span> <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span>	<span class="token comment">-- 案例</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>删除数据</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete from 表名 where 条件;	-- 删除语句中如果不加where条件，则将所有数据删除<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 条件<span class="token punctuation">;</span>	<span class="token comment">-- 删除语句中如果不加where条件，则将所有数据删除</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
-<h3 id="五、DQL-查询表的记录、数据"><a href="#五、DQL-查询表的记录、数据" class="headerlink" title="五、DQL-查询表的记录、数据"></a>五、DQL-查询表的记录、数据</h3><h5 id="查询语法"><a href="#查询语法" class="headerlink" title="查询语法"></a>查询语法</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select
+<h3 id="五、DQL-查询表的记录、数据"><a href="#五、DQL-查询表的记录、数据" class="headerlink" title="五、DQL-查询表的记录、数据"></a>五、DQL-查询表的记录、数据</h3><h5 id="查询语法"><a href="#查询语法" class="headerlink" title="查询语法"></a>查询语法</h5><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>
 	字段列表
-from
+<span class="token keyword">from</span>
 	表名列表
-where
+<span class="token keyword">where</span>
 	条件列表
-group by
+<span class="token keyword">group</span> <span class="token keyword">by</span>
 	分组字段
-having
+<span class="token keyword">having</span>
 	分组后条件
-order by
+<span class="token keyword">order</span> <span class="token keyword">by</span>
 	排序字段
-limit
+<span class="token keyword">limit</span>
 	分页限定<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h5><ol>
 <li><p>查询多个字段</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select 字段列表 from表名;
-select * from 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span>表名<span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> 表名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>去除重复记录</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select distinct 字段列表 from 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token keyword">distinct</span> 字段列表 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>起别名</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">as:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">as</span>:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -1070,7 +1070,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.6k</span>&nbsp;字
+                class="white-color">13.5k</span>&nbsp;字
             
             
             

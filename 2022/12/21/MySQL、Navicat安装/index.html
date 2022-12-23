@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    397
+                    391
                 </div>
                 
 
@@ -418,21 +418,21 @@
 skip-grant-tables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="三、安装MySQL服务及初始化"><a href="#三、安装MySQL服务及初始化" class="headerlink" title="三、安装MySQL服务及初始化"></a>三、安装MySQL服务及初始化</h3><p>以管理员身份运行<code>cmd</code>分别执行以下命令</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">mysqld install
-mysqld --initialize
-net start mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysqld install
+mysqld <span class="token comment">--initialize</span>
+net <span class="token keyword">start</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="四、登录MySQL、修改密码"><a href="#四、登录MySQL、修改密码" class="headerlink" title="四、登录MySQL、修改密码"></a>四、登录MySQL、修改密码</h3><p>执行<code>mysql -u root -p</code>后提示输入密码</p>
 <p>直接回车，因为刚刚的<code>my.ini</code>最后一行的意思就是跳过密码直接登录</p>
 <p>输入以下命令修改密码</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update mysql.user set authentication_string&#x3D;password(&#39;123456&#39;) where user&#x3D;&#39;root&#39; ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span> <span class="token keyword">set</span> authentication_string<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">'123456'</span><span class="token punctuation">)</span> <span class="token keyword">where</span> <span class="token keyword">user</span><span class="token operator">=</span><span class="token string">'root'</span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>到此<code>MySQL</code>就安装完毕了…</p>
 <p>第一次登入可能需要修改一次密码</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter user ‘root’@‘loaclhost’ identified by ‘654321’;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">user</span> ‘root’@‘loaclhost’ identified <span class="token keyword">by</span> ‘<span class="token number">654321</span>’<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>另外，退出命令如下</p>
-<pre class="line-numbers language-none"><code class="language-none">exit
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">exit</span>
 quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="五、安装Navicat"><a href="#五、安装Navicat" class="headerlink" title="五、安装Navicat"></a>五、安装Navicat</h3><p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_35724834/article/details/90052994?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167168388916800182766279%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=167168388916800182766279&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-90052994-null-null.142%5Ev68%5Econtrol,201%5Ev4%5Eadd_ask,213%5Ev2%5Et3_control2&utm_term=navicat%20premium12%E7%A0%B4%E8%A7%A3&spm=1018.2226.3001.4187">Navicat Premium 12安装教程</a>…</p>
@@ -986,7 +986,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.6k</span>&nbsp;字
+                class="white-color">13.5k</span>&nbsp;字
             
             
             
