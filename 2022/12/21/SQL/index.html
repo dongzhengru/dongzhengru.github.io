@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo博客搭建, 正如">
+    <meta name="keywords" content="SQL, 正如">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo博客搭建 | 正如</title>
+    <title>SQL | 正如</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -216,12 +216,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo博客搭建</h1>
+                    <h1 class="description center-align post-title">SQL</h1>
                 </div>
             </div>
         </div>
@@ -337,8 +337,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">博客搭建</span>
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -349,8 +349,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                博客搭建
+                            <a href="/categories/Java-Web/" class="post-category">
+                                Java Web
                             </a>
                         
                     </div>
@@ -362,7 +362,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-09
+                    2022-12-21
                 </div>
                 
 
@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    720
+                    855
                 </div>
                 
 
@@ -391,95 +391,133 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="欢迎来到我的博客！这是我的第一篇文章"><a href="#欢迎来到我的博客！这是我的第一篇文章" class="headerlink" title="欢迎来到我的博客！这是我的第一篇文章"></a><strong>欢迎来到我的博客！这是我的第一篇文章</strong></h2><p>也没什么好说的，就记录一下我搭建博客的过程吧…</p>
-<p>纯小白，看学长写的<a target="_blank" rel="noopener" href="https://lcdzzz.github.io/2022/11/05/hexo-bo-ke-an-zhuang-jiao-cheng-tai-jiao-ji/">教程</a>一步步创建了Hexo博客，中间虽然出了很多的问题，不过最后都一个个百度解决了</p>
-<h3 id="一、环境安装"><a href="#一、环境安装" class="headerlink" title="一、环境安装"></a>一、环境安装</h3><h5 id="安装git、Nodejs"><a href="#安装git、Nodejs" class="headerlink" title="安装git、Nodejs"></a>安装git、Nodejs</h5><p>用下面两条语句检查是否安装成功</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">node</span> <span class="token parameter variable">-v</span>
-<span class="token function">npm</span> <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <p>本文以mysql为例…</p>
+<h3 id="一、SQL通用语法"><a href="#一、SQL通用语法" class="headerlink" title="一、SQL通用语法"></a>一、SQL通用语法</h3><ol>
+<li>SQL语句可以单行或多行，分号结尾</li>
+<li>MySQL数据库的SQL语句不区分大小写，关键字建议大写</li>
+<li>注释如下（注意<code>--</code> 后面有空格）</li>
+</ol>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">单行注释： <span class="token comment">-- 注释内容 或 #注释内容（MySQL特有）</span>
+多行注释： <span class="token comment">/* 注释 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h5 id="安装cnpm-检查版本"><a href="#安装cnpm-检查版本" class="headerlink" title="安装cnpm,检查版本"></a>安装cnpm,检查版本</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> cnpm <span class="token parameter variable">--registry</span><span class="token operator">=</span>http://registry.npm.taobao.org
-cnpm <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="二、SQL分类"><a href="#二、SQL分类" class="headerlink" title="二、SQL分类"></a>二、SQL分类</h3><ul>
+<li>DDL(Data Definition Language)数据定义语言，用来定义数据库对象：数据库，表，列等</li>
+<li>DML(Data Manipulation Language)数据操作语言，用来对数据库中表的数据进行增删改</li>
+<li>DQL(Data Query Language)数据查询语言，用来查询数据库中表的记录(数据)</li>
+<li>DCL(Data Control Language)数据控制语言，用来定义数据库的访问权限和安全级别，及创建用户</li>
+</ul>
+<p><img src="/2022/12/21/SQL/image-20221221163849483.png" alt="image-20221221163849483"></p>
+<h3 id="三、DDL-操作数据库、表"><a href="#三、DDL-操作数据库、表" class="headerlink" title="三、DDL-操作数据库、表"></a>三、DDL-操作数据库、表</h3><h5 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h5><ol>
+<li><p>查询</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show databases;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>创建数据库</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create database 数据库名称;
+create database if not exists 数据库名称;	-- 判断否存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>删除数据库</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database 数据库名称;
+drop database if exists 数据库名称;	-- 判断是否存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用数据库</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select database();
+use 数据库名称;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h5 id="操作数据表"><a href="#操作数据表" class="headerlink" title="操作数据表"></a>操作数据表</h5><ol>
+<li><p>查询当前数据库下所有表名称</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show tables;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>查询表结构</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">desc 表名称;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>创建表（注意最后一行末尾，不能加逗号）</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create table 表名 (
+			字段名1 数据类型1,
+            字段名2 数据类型2,
+            ...
+            字段名n 数据类型n
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>删除表</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop table 表名;
+drop table if exists 表名;	--  判断是否存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>修改表名</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 rename to 新的表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>添加一列</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 add 列名 数据类型;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>修改数据类型</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 modify 列名 新数据类型;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>修改列名和数据类型</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 change 列名 新列名 新数据类型;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>删除列</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 drop 列名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p><code>MySQL</code>数据类型可以分为以下三类：</p>
+<ul>
+<li>数值</li>
+<li>日期</li>
+<li>字符串</li>
+</ul>
+<p><img src="/2022/12/21/SQL/image-20221221172849958.png" alt="image-20221221172849958"></p>
+<p>PS:</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">score double(总长度，小数点后保留的位数)
+score double(5,2)		-- 0~100 2（5为3+2）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h5 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h5><p>我第一次就是这里卡了导致后面博客加载不出来……..</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cnpm <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli
-hexo <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">name char(10)	-- 定长
+name varchar(10)	-- 变长
+-- 如果将“张三”字符存入两种类型，char占用10个字符空间，varchar占用2个字符空间
+-- char存储的性能高 浪费空间 varchar存储性能低 节约空间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="二、博客程序安装"><a href="#二、博客程序安装" class="headerlink" title="二、博客程序安装"></a>二、博客程序安装</h3><h5 id="连接Github"><a href="#连接Github" class="headerlink" title="连接Github"></a>连接Github</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"GitHub 用户名"</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"GitHub 邮箱"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="四、DML-增删改数据"><a href="#四、DML-增删改数据" class="headerlink" title="四、DML-增删改数据"></a>四、DML-增删改数据</h3><ol>
+<li><p>给指定列添加数据</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名(列名1,列名2,...)  values(值1,值2,...);
+insert into stu(id,name) values(1,&#39;张三&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>给全部列添加数据</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名 values(值1,值2,...);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>批量添加数据</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名(列名1,列名2,...)  values(值1,值2,...),(值1,值2,...),(值1,值2,...)...;
+insert into 表名  values(值1,值2,...),(值1,值2,...),(值1,值2,...)...;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>修改表数据</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update 表名 set 列名1&#x3D;值1,列名2&#x3D;值2,... where 条件;		-- 修改语句中如果不加where条件，则将所有数据都修改
+update stu set birthday &#x3D; &#39;1999-12-12&#39;, score &#x3D; 99.99 where name &#x3D; &#39;张三&#39;;	-- 案例<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>删除数据</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete from 表名 where 条件;	-- 删除语句中如果不加where条件，则将所有数据删除<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="五、DQL-查询表的记录、数据"><a href="#五、DQL-查询表的记录、数据" class="headerlink" title="五、DQL-查询表的记录、数据"></a>五、DQL-查询表的记录、数据</h3><h5 id="查询语法"><a href="#查询语法" class="headerlink" title="查询语法"></a>查询语法</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select
+	字段列表
+from
+	表名列表
+where
+	条件列表
+group by
+	分组字段
+having
+	分组后条件
+order by
+	排序字段
+limit
+	分页限定<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="创建ssh公钥秘钥"><a href="#创建ssh公钥秘钥" class="headerlink" title="创建ssh公钥秘钥"></a>创建ssh公钥秘钥</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"GitHub 邮箱"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>将id_rsa.pub中的公钥添加到github的账号里</p>
-<h5 id="用bash验证连接"><a href="#用bash验证连接" class="headerlink" title="用bash验证连接"></a>用bash验证连接</h5><p>这个地方我看的教程说会出现are you sure，但我验证的时候没出现，</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这里出现了个but还以为出了什么问题，搜了一圈发现没问题。。。</p>
-<h5 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h5><p>Github的用户名+.github.io（必须要是这个）</p>
-<h5 id="安装Hexo博客程序"><a href="#安装Hexo博客程序" class="headerlink" title="安装Hexo博客程序"></a>安装Hexo博客程序</h5><p>创建一个本地文件夹，在根目录右键bash</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这里可能比较比较比较比较比较慢，因网而异吧</p>
-<h5 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
-<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h5 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>默认端口4000，校园网的4000好像被占用了所以用<code>hexo server -p 5000</code>改端口号就行了</p>
-<p>本地预览页<code>http://localhost:4000</code></p>
-<h3 id="三、部署上传到Github"><a href="#三、部署上传到Github" class="headerlink" title="三、部署上传到Github"></a>三、部署上传到Github</h3><h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 更改根目录_config.yml最后的地方</p>
-<p>这里的分支我改成了main，之前用master好像上传不上去，但我不知道是不是分支的问题</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> git@github.com/用户名/用户名.github.io.git
-  <span class="token key atrule">branch</span><span class="token punctuation">:</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这里可能需要等一段时间，具体时间比较随缘</p>
-<h5 id="至此你就可以通过下面的域名来访问自己的博客了"><a href="#至此你就可以通过下面的域名来访问自己的博客了" class="headerlink" title="至此你就可以通过下面的域名来访问自己的博客了"></a>至此你就可以通过下面的域名来访问自己的博客了</h5><pre class="line-numbers language-Text" data-language="Text"><code class="language-Text">https:&#x2F;&#x2F;用户名.github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="四、主题安装"><a href="#四、主题安装" class="headerlink" title="四、主题安装"></a>四、主题安装</h3><p>这里我拿matery主题来举例，其他的应该大同小异</p>
-<h5 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h5><p>解压后，复制文件夹到博客主题文件夹</p>
-<h5 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h5><p>改<code>theme</code>为<code>hexo-theme-matery</code>  &#x2F;&#x2F;主题名（必须跟主题文件夹名字一致）</p>
-<p>改<code>url</code>为<code>http://用户名.github.io</code></p>
-<p>改<code>per_page</code>为<code>6、12、18</code>（6的倍数）</p>
-<p>改<code>language</code>为<code>zh-CN</code></p>
-<h5 id="新建类别、标记、关于页"><a href="#新建类别、标记、关于页" class="headerlink" title="新建类别、标记、关于页"></a>新建类别、标记、关于页</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"categories"</span>
-hexo new page <span class="token string">"tags"</span>
-hexo new page <span class="token string">"about"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>分别在新页面文件内添加以下内容</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> categories
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-30 17:25:30</span>
-<span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"categories"</span>
-<span class="token key atrule">layout</span><span class="token punctuation">:</span> <span class="token string">"categories"</span></span>
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> tags
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-10 18:23:38</span>
-<span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"tags"</span>
-<span class="token key atrule">layout</span><span class="token punctuation">:</span> <span class="token string">"tags"</span></span>
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> about
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-30 17:25:30</span>
-<span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"about"</span>
-<span class="token key atrule">layout</span><span class="token punctuation">:</span> <span class="token string">"about"</span></span>
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="上传到Github"><a href="#上传到Github" class="headerlink" title="上传到Github"></a>上传到Github</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo s		//测试
-hexo d      //上传<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="结束…"><a href="#结束…" class="headerlink" title="结束…"></a>结束…</h5><p>博主很懒</p>
-<p>以后看博主心情更新吧…</p>
+<h5 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h5><ol>
+<li><p>查询多个字段</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select 字段列表 from表名;
+select * from 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>去除重复记录</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select distinct 字段列表 from 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>起别名</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">as:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
 
                 
             </div>
@@ -506,7 +544,7 @@ hexo d      //上传<span aria-hidden="true" class="line-numbers-rows"><span></s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dongzhengru.github.io/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">http://dongzhengru.github.io/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</a>
+                    <a href="http://dongzhengru.github.io/2022/12/21/SQL/">http://dongzhengru.github.io/2022/12/21/SQL/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -544,8 +582,8 @@ hexo d      //上传<span aria-hidden="true" class="line-numbers-rows"><span></s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">博客搭建</span>
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -715,84 +753,36 @@ hexo d      //上传<span aria-hidden="true" class="line-numbers-rows"><span></s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/11/09/%E9%9B%B6%E9%92%B1%E9%80%9A%E9%A1%B9%E7%9B%AE-Java/">
+                <a href="/2022/12/21/SQL/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="零钱通项目-Java">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQL">
                         
-                        <span class="card-title">零钱通项目-Java</span>
+                        <span class="card-title">SQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第一个简单的小项目
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    Java项目
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">Java入门项目</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/11/09/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Hexo博客搭建">
-                        
-                        <span class="card-title">Hexo博客搭建</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            博客搭建
+                            SQL语法入门
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                    博客搭建
+                            <a href="/categories/Java-Web/" class="post-category">
+                                    Java Web
                                 </a>
                             
                             
@@ -803,8 +793,57 @@ hexo d      //上传<span aria-hidden="true" class="line-numbers-rows"><span></s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/12/21/MySQL%E3%80%81Navicat%E5%AE%89%E8%A3%85/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="MySQL、Navicat安装">
+                        
+                        <span class="card-title">MySQL、Navicat安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据库入门
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java-Web/" class="post-category">
+                                    Java Web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>

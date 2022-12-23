@@ -337,8 +337,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">
-                                <span class="chip bg-color">面向对象编程</span>
+                            <a href="/tags/Java-SE/">
+                                <span class="chip bg-color">Java SE</span>
                             </a>
                         
                     </div>
@@ -349,8 +349,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                Java学习笔记
+                            <a href="/categories/Java-SE/" class="post-category">
+                                Java SE
                             </a>
                         
                     </div>
@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.9k
+                    7.7k
                 </div>
                 
 
@@ -408,7 +408,7 @@
 <p>下面来看一段代码</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Child&#123;
     private String name;
-    public static int count&#x3D;0;	#定义一个变量count，是一个类变量（静态变量），被Child类的所有对象实例共享
+    public static int count&#x3D;0;	&#x2F;&#x2F;定义一个变量count，是一个类变量（静态变量），被Child类的所有对象实例共享
     public Child(String name) &#123;
         this.name &#x3D; name;
     &#125;
@@ -563,18 +563,18 @@
         System.out.println(instance);
         GirlFriend instance2 &#x3D; GirlFriend.getInstance();
         System.out.println(instance2);
-        if (instance&#x3D;&#x3D;instance2)&#123;			#可以看到两次获取到的都是同一对象
+        if (instance&#x3D;&#x3D;instance2)&#123;			&#x2F;&#x2F;可以看到两次获取到的都是同一对象
             System.out.println(&quot;true&quot;);
         &#125;
     &#125;
 &#125;
 class GirlFriend&#123;
     private String name;
-    private static GirlFriend tank&#x3D;new GirlFriend(&quot;Tank&quot;);		#类的内部创建静态对象
-    private GirlFriend(String name) &#123;					#构造器私有化
+    private static GirlFriend tank&#x3D;new GirlFriend(&quot;Tank&quot;);		&#x2F;&#x2F;类的内部创建静态对象
+    private GirlFriend(String name) &#123;					&#x2F;&#x2F;构造器私有化
         this.name &#x3D; name;
     &#125;
-    public static GirlFriend getInstance()&#123;				#向外暴露一个静态的公共方法
+    public static GirlFriend getInstance()&#123;				&#x2F;&#x2F;向外暴露一个静态的公共方法
         return tank;
     &#125;
     @Override
@@ -614,7 +614,7 @@ class Cat&#123;
         this.name &#x3D; name;
     &#125;
     public static Cat getInstance()&#123;
-        if (cat&#x3D;&#x3D;null)&#123;		#如果对象还未创建，则创建一个
+        if (cat&#x3D;&#x3D;null)&#123;		&#x2F;&#x2F;如果对象还未创建，则创建一个
             cat&#x3D;new Cat(&quot;小可爱&quot;);
         &#125;
         return cat;
@@ -631,17 +631,17 @@ class Cat&#123;
 <h3 id="六、final关键字"><a href="#六、final关键字" class="headerlink" title="六、final关键字"></a>六、final关键字</h3><h5 id="基本介绍-1"><a href="#基本介绍-1" class="headerlink" title="基本介绍"></a>基本介绍</h5><p>final可以修饰类、属性、方法和局部变量</p>
 <h5 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h5><ol>
 <li><p>当不希望类被继承时，可以用<code>final</code>修饰</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">final class A&#123;&#125;				#在不想被继承的类前加final
-class B extends A&#123;&#125;			#此处会报错，无法继承A类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">final class A&#123;&#125;				&#x2F;&#x2F;在不想被继承的类前加final
+class B extends A&#123;&#125;			&#x2F;&#x2F;此处会报错，无法继承A类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>当不希望父类的某个方法被子类覆盖&#x2F;重写时，可以用<code>final</code>关键字修饰</p>
 <p>具体格式为<code>访问修饰符 final 返回类型 方法名</code></p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class C &#123;
-    public final void hi()&#123;&#125;	#这里使用final修饰方法
+    public final void hi()&#123;&#125;	&#x2F;&#x2F;这里使用final修饰方法
 &#125;
 class D extends C&#123;
     @Override
-    public void hi() &#123;		#此处会报错，只能继承但不能重写C类的hi方法
+    public void hi() &#123;		&#x2F;&#x2F;此处会报错，只能继承但不能重写C类的hi方法
         System.out.println(&quot;重写C类的hi方法&quot;);
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -650,18 +650,18 @@ class D extends C&#123;
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Final01 &#123;
     public static void main(String[] args) &#123;
         E e &#x3D; new E();
-        e.n1&#x3D;888;		#报错，无法修改
+        e.n1&#x3D;888;		&#x2F;&#x2F;报错，无法修改
     &#125;
 &#125;
 class E&#123;
-    public final int n1&#x3D;999;	#这里用final修饰变量
+    public final int n1&#x3D;999;	&#x2F;&#x2F;这里用final修饰变量
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>当不希望某个局部变量被修改，可以用<code>final</code>修饰</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class F&#123;
     public void cry()&#123;
-        final double Num&#x3D;0.01;	#finall修饰局部变量
-        Num&#x3D;0.9;	#报错，无法修改
+        final double Num&#x3D;0.01;	&#x2F;&#x2F;finall修饰局部变量
+        Num&#x3D;0.9;	&#x2F;&#x2F;报错，无法修改
         System.out.println(&quot;Num&#x3D; &quot;+Num);
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
@@ -673,13 +673,13 @@ class E&#123;
 <p>①定义时：如<code>public final double TAX_RATE=0.08;</code></p>
 <p>②在构造器中</p>
 <p>③在代码块中</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public final double TAX_RATE&#x3D;0.01;		#第一种
-public final double TAX_RATE2;			#第二种
-public final double TAX_RATE3;			#第三种
-public AA()&#123;			#第二种：在构造器中赋初值
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public final double TAX_RATE&#x3D;0.01;		&#x2F;&#x2F;第一种
+public final double TAX_RATE2;			&#x2F;&#x2F;第二种
+public final double TAX_RATE3;			&#x2F;&#x2F;第三种
+public AA()&#123;			&#x2F;&#x2F;第二种：在构造器中赋初值
     TAX_RATE2&#x3D;1.1;			
 &#125;
-&#123;						#第三种：在代码块中赋初值
+&#123;						&#x2F;&#x2F;第三种：在代码块中赋初值
     TAX_RATE3&#x3D;2.2;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -687,36 +687,36 @@ public AA()&#123;			#第二种：在构造器中赋初值
 <p>①定义时</p>
 <p>②在静态代码块，不能再构造器中赋值</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static final double TAX_RATE&#x3D;0.01;
-public static final double TAX_RATE2;	#报错
+public static final double TAX_RATE2;	&#x2F;&#x2F;报错
 public static final double TAX_RATE3;	
 public BB()&#123;
-    TAX_RATE2&#x3D;1.1;		#构造器不能赋值（静态）
+    TAX_RATE2&#x3D;1.1;		&#x2F;&#x2F;构造器不能赋值（静态）
 &#125;
 
 static &#123;
-    TAX_RATE3&#x3D;2.2;		#静态代码块可以赋值
+    TAX_RATE3&#x3D;2.2;		&#x2F;&#x2F;静态代码块可以赋值
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><code>final</code>类不能继承，但是可以实例化对象</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FinalDetail01 &#123;
     public static void main(String[] args) &#123;
-        CC cc &#x3D; new CC();		#实例化对象不会报错
+        CC cc &#x3D; new CC();		&#x2F;&#x2F;实例化对象不会报错
     &#125;
 &#125;
-final class CC&#123;&#125;		#final类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+final class CC&#123;&#125;		&#x2F;&#x2F;final类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>如果类不是final类，但是含有<code>final</code>方法，则该方法虽然不能重写，但是可以被继承</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FinalDetail01 &#123;
     public static void main(String[] args) &#123;
-        new EE().cal();		#可以正常调用
+        new EE().cal();		&#x2F;&#x2F;可以正常调用
     &#125;
 &#125;
 class DD&#123;
-    public final void cal()&#123;	#此处含有final方法
+    public final void cal()&#123;	&#x2F;&#x2F;此处含有final方法
         System.out.println(&quot;cal()方法&quot;);
     &#125;
 &#125;
-class EE extends DD&#123;&#125;	#可以继承DD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+class EE extends DD&#123;&#125;	&#x2F;&#x2F;可以继承DD<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 </li>
@@ -726,7 +726,7 @@ class EE extends DD&#123;&#125;	#可以继承DD<span aria-hidden="true" class="l
 </li>
 <li><p>final和static往往搭配使用，效率更高，不会导致类加载，底层编译器做了优化处理</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static void main(String[] args) &#123;
-        System.out.println(BBB.num);	#输出999和BBB被执行
+        System.out.println(BBB.num);	&#x2F;&#x2F;输出999和BBB被执行
 &#125;
 class BBB&#123;
     public static int num&#x3D;999;
@@ -736,12 +736,12 @@ class BBB&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static void main(String[] args) &#123;
-    System.out.println(BBB.num);		#仅输出999
+    System.out.println(BBB.num);		&#x2F;&#x2F;仅输出999
 &#125;
 class BBB&#123;
     public final static int num&#x3D;999;
     static&#123;
-        System.out.println(&quot;BBB 的静态代码块被执行&quot;);	#此句不输出
+        System.out.println(&quot;BBB 的静态代码块被执行&quot;);	&#x2F;&#x2F;此句不输出
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -751,13 +751,13 @@ class BBB&#123;
 <h3 id="七、抽象类"><a href="#七、抽象类" class="headerlink" title="七、抽象类"></a>七、抽象类</h3><h5 id="引入抽象类"><a href="#引入抽象类" class="headerlink" title="引入抽象类"></a>引入抽象类</h5><p>当父类的某些方法，需要声明，但是又不确定如何实现时，可以用<code>abstract</code>关键字来修饰方法，将其声明为抽象方法，那么这个类就是抽象类</p>
 <h5 id="具体写法"><a href="#具体写法" class="headerlink" title="具体写法"></a>具体写法</h5><p>这里要注意，如果要将方法设为抽象方法，那么需要在类的前面也加上<code>abstract</code>，否则会报错，同时抽象方法没有方法体，否则会报错</p>
 <p>具体格式为<code>访问修饰符 abstract 返回类型 方法名(参数列表);</code></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class Animal&#123;				#类的前面加上abstract
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class Animal&#123;				&#x2F;&#x2F;类的前面加上abstract
     private String name;
 
     public Animal(String name) &#123;
         this.name &#x3D; name;
     &#125;
-    public abstract void eat();		#抽象方法
+    public abstract void eat();		&#x2F;&#x2F;抽象方法
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>而且，抽象类一般来说会被继承，由其子类来实现抽象方法</p>
@@ -765,13 +765,13 @@ class BBB&#123;
 <li><p>抽象类不能被实例化</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Abstract02 &#123;
     public static void main(String[] args) &#123;
-        new A();	#此处报错，不能实例化抽象类
+        new A();	&#x2F;&#x2F;此处报错，不能实例化抽象类
     &#125;
 &#125;
 abstract class A&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>抽象类不一定要包含<code>abstract</code>方法，换句话说，抽象类可以没有<code>abstract</code>方法，还可以有实现的方法</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class A&#123;&#125;		#用上面的代码来举例，此处并不会报错<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class A&#123;&#125;		&#x2F;&#x2F;用上面的代码来举例，此处并不会报错<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class A&#123;
 	public void hi()&#123;
@@ -781,12 +781,12 @@ abstract class A&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><
 </li>
 <li><p>一旦类包含了<code>abstract</code>方法，则这个类必须声明为<code>abstract</code></p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class B&#123;
-    public abstract void hi();		#报错，因为包含了抽象方法，所以必须是抽象类
+    public abstract void hi();		&#x2F;&#x2F;报错，因为包含了抽象方法，所以必须是抽象类
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><code>abstract</code>只能修饰类和方法，不能修饰属性和其他</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class C&#123;
-    public abstract int a;			#报错，abstract只能修饰类和方法
+    public abstract int a;			&#x2F;&#x2F;报错，abstract只能修饰类和方法
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>抽象类可以有任意成员【抽象类本质还是类】，比如：非抽象方法、构造器、静态属性等等</p>
@@ -797,19 +797,19 @@ abstract class A&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class E&#123;
     public abstract void hi();
 &#125;
-class F extends E&#123;&#125;		#这里继承了E抽象类，但没有实现所有的抽象方法，所以会报错<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+class F extends E&#123;&#125;		&#x2F;&#x2F;这里继承了E抽象类，但没有实现所有的抽象方法，所以会报错<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class E&#123;
     public abstract void hi();
 &#125;
-abstract class F extends E&#123;&#125;	#那么我们在子类前加上abstract就不会报错<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+abstract class F extends E&#123;&#125;	&#x2F;&#x2F;那么我们在子类前加上abstract就不会报错<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">abstract class E&#123;
     public abstract void hi();
 &#125;
 class G extends E&#123;
     @Override
-    public void hi() &#123;&#125;			#所谓实现方法，就是要有方法体（空也可以）
+    public void hi() &#123;&#125;			&#x2F;&#x2F;所谓实现方法，就是要有方法体（空也可以）
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>抽象方法不能用private、final、static来修饰，因为这些关键字都是和重写相违背的</p>
@@ -861,13 +861,13 @@ abstract public class Template &#123;
     public abstract void job();
     public void calculateTime()&#123;
         long start&#x3D;System.currentTimeMillis();
-        job();			#动态机制绑定到AA或BB的job执行
+        job();			&#x2F;&#x2F;动态机制绑定到AA或BB的job执行
         long end&#x3D;System.currentTimeMillis();
         System.out.println(&quot;任务执行时间：&quot;+(end-start));
     &#125;
 &#125;
 public class AA extends Template&#123;
-    public void job()&#123;		#重写抽象类里的job
+    public void job()&#123;		&#x2F;&#x2F;重写抽象类里的job
         long num&#x3D;0;
         for (long i&#x3D;1;i&lt;&#x3D;800000;i++)&#123;
             num+&#x3D;i;
@@ -875,7 +875,7 @@ public class AA extends Template&#123;
     &#125;
 &#125;
 public class BB extends Template &#123;
-    public void job()&#123;		##重写抽象类里的job
+    public void job()&#123;		&#x2F;&#x2F;&#x2F;&#x2F;重写抽象类里的job
         long num&#x3D;0;
         for (long i&#x3D;1;i&lt;&#x3D;80000;i++)&#123;
             num*&#x3D;i;
@@ -890,26 +890,26 @@ public class BB extends Template &#123;
         Phone phone &#x3D; new Phone();
         Camera camera &#x3D; new Camera();
         Computer computer &#x3D; new Computer();
-        computer.work(phone);      #把手机接入到计算机
+        computer.work(phone);      &#x2F;&#x2F;把手机接入到计算机
         System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
-        computer.work(camera);      #把相机接入到计算机
+        computer.work(camera);      &#x2F;&#x2F;把相机接入到计算机
     &#125;
 &#125;
-public interface UsbInterface &#123;     #接口中abstract和public可以省略
+public interface UsbInterface &#123;     &#x2F;&#x2F;接口中abstract和public可以省略
     public void start();
     public void stop();
 &#125;
-public class Phone implements UsbInterface&#123; 	#Phone类实现了UsbInterface
+public class Phone implements UsbInterface&#123; 	&#x2F;&#x2F;Phone类实现了UsbInterface
     @Override
-    public void start() &#123;		#实现UsbInterface接口规定&#x2F;声明的方法
+    public void start() &#123;		&#x2F;&#x2F;实现UsbInterface接口规定&#x2F;声明的方法
         System.out.println(&quot;手机开始工作...&quot;);
     &#125;
     @Override
-    public void stop() &#123;		#实现UsbInterface接口规定&#x2F;声明的方法
+    public void stop() &#123;		&#x2F;&#x2F;实现UsbInterface接口规定&#x2F;声明的方法
         System.out.println(&quot;手机停止工作...&quot;);
     &#125;
 &#125;
-public class Camera implements UsbInterface&#123; 	#Camera类实现了UsbInterface
+public class Camera implements UsbInterface&#123; 	&#x2F;&#x2F;Camera类实现了UsbInterface
     @Override
     public void start() &#123;
         System.out.println(&quot;相机开始工作了...&quot;);
@@ -920,7 +920,7 @@ public class Camera implements UsbInterface&#123; 	#Camera类实现了UsbInterfa
     &#125;
 &#125;
 public class Computer &#123;
-    public void work(UsbInterface usbInterface)&#123;	#计算机工作
+    public void work(UsbInterface usbInterface)&#123;	&#x2F;&#x2F;计算机工作
         usbInterface.start();
         usbInterface.stop();
     &#125;
@@ -945,16 +945,16 @@ class 类名 implements 接口&#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="注意事项-2"><a href="#注意事项-2" class="headerlink" title="注意事项"></a>注意事项</h5><p>接口不能被实例化</p>
-<p>接口中所有的方法是public方法，接口中抽象方法，可以不用abstract修饰</p>
+<p>接口中所有的方法是<code>public</code>方法，接口中抽象方法，可以不用<code>abstract</code>修饰</p>
 <p>一个普通类实现接口，就必须将该接口的所有方法都实现</p>
-<p>这里有一个快捷键，在下图报错的位置，使用Alt+Enter，选择Implement methods即可快速导入接口中所有要实现的方法</p>
+<p>这里有一个快捷键，在下图报错的位置，使用<code>Alt+Enter</code>，选择<code>Implement methods</code>即可快速导入接口中所有要实现的方法</p>
 <p><img src="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/image-20221120190852637.png" alt="image-20221120190852637"></p>
 <p>抽象类实现接口，可以不用实现接口的方法</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">interface IA&#123;
     void say();
     void hi();
 &#125;
-abstract class Tiger implements IA&#123;&#125;		#不会报错，抽象类可以不实现<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+abstract class Tiger implements IA&#123;&#125;		&#x2F;&#x2F;不会报错，抽象类可以不实现<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>一个类同时可以实现多个接口</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">interface IB&#123;
@@ -963,12 +963,12 @@ abstract class Tiger implements IA&#123;&#125;		#不会报错，抽象类可以�
 interface IC&#123;
     void say();
 &#125;
-class Pig implements IB,IC&#123;		#Pig类实现了IB和IC两个接口
+class Pig implements IB,IC&#123;		&#x2F;&#x2F;Pig类实现了IB和IC两个接口
     public void hi() &#123;&#125;
     public void say() &#123;&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>接口中的属性，只能是final的，而且是public static final修饰符</p>
+<p>接口中的属性，只能是<code>final</code>的，而且是<code>public static final</code>修饰符</p>
 <p>接口中属性的访问形式：接口名.属性名</p>
 <p>接口不能继承其他的类，但是可以继承多个别的接口</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">interface IB&#123;
@@ -977,12 +977,186 @@ class Pig implements IB,IC&#123;		#Pig类实现了IB和IC两个接口
 interface IC&#123;
     void say();
 &#125;
-class Pig implements IB,IC&#123;		#同时实现了多个接口，用逗号分隔
+class Pig implements IB,IC&#123;		&#x2F;&#x2F;同时实现了多个接口，用逗号分隔
     public void hi()&#123;&#125;
     public void say()&#123;&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>接口的修饰符只能是public和默认，这点和类的修饰符是一样的</p>
+<h5 id="接口和继承的区别"><a href="#接口和继承的区别" class="headerlink" title="接口和继承的区别"></a>接口和继承的区别</h5><p>继承的价值主要在于：解决代码的复用性和可维护性</p>
+<p>接口的价值主要在于：设计，设计好各种规范（方法），让其它类去实现这些方法</p>
+<p>子类继承了父类，就自动的拥有父类的功能，如果子类需要扩展功能，可以通过实现接口的方式扩展，可以理解实现接口是对 单继承机制的一种补充</p>
+<p>继承是满足<code>is-a</code>的关系，而接口只需满足<code>like-a</code>的关系</p>
+<p>接口在一定程度上实现了代码解耦，即：接口规范性+动态绑定机制</p>
+<h5 id="接口的多态特性"><a href="#接口的多态特性" class="headerlink" title="接口的多态特性"></a>接口的多态特性</h5><p>多态参数，在前面的代码里<code>UsbInterface usb</code>，即可以接收手机对象，又可以接收相机对象，体现了借口多态，且接口类型的变量可以指向实现了接口的对象实例</p>
+<p>多态数组，在Usb数组中，存放Phone和Camera对象，</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class InterfacePolyArr &#123;
+    public static void main(String[] args) &#123;
+        Usb[] usb&#x3D;new Usb[2];
+        usb[0]&#x3D;new Phone_();
+        usb[1]&#x3D;new Camera_();			&#x2F;&#x2F;可以存放不同的对象
+        for (int i&#x3D;0;i&lt; usb.length;i++)&#123;
+            usb[i].work();      	&#x2F;&#x2F;动态绑定机制
+            if (usb[i] instanceof Phone_)&#123;	&#x2F;&#x2F;判断运行类型是否一致
+                ((Phone_) usb[i]).call();
+            &#125;
+        &#125;
+    &#125;
+&#125;
+interface Usb&#123;
+    void work();
+&#125;
+class Phone_ implements Usb&#123;
+    public void call()&#123;
+        System.out.println(&quot;手机可以打电话...&quot;);
+    &#125;
+    public void work() &#123;
+        System.out.println(&quot;手机工作中...&quot;);
+    &#125;
+&#125;
+class Camera_ implements Usb&#123;
+    public void work() &#123;
+        System.out.println(&quot;相机工作中...&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>多态传递，用下面的例子来说，如果<code>IG</code>继承了<code>IH</code>接口，而<code>Teacher</code>类实现了<code>IG</code>接口，那么，实际上就相当于<code>Teacher</code>类也实现了<code>IH</code>接口</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class InterfacePolyPass &#123;
+    public static void main(String[] args) &#123;
+        IG ig&#x3D;new Teacher();
+        IH ih&#x3D;new Teacher();
+    &#125;
+&#125;
+interface IH&#123;&#125;
+interface IG extends IH&#123;&#125;
+class Teacher implements IG&#123;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="九、内部类"><a href="#九、内部类" class="headerlink" title="九、内部类"></a>九、内部类</h3><h5 id="基本介绍-3"><a href="#基本介绍-3" class="headerlink" title="基本介绍"></a>基本介绍</h5><p>一个类的内部又完整的嵌套了另一个类结构。被嵌套的类称为内部类，嵌套其他类的类称为外部类，内部类最大的特点就是可以直接访问私有属性，并且可以提现类与类之间的包含关系</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer&#123;	&#x2F;&#x2F;外部类
+    class Inner&#123;	&#x2F;&#x2F;内部类
+        
+    &#125;
+&#125;
+class Other&#123;	&#x2F;&#x2F;外部其他类
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="内部类的分类"><a href="#内部类的分类" class="headerlink" title="内部类的分类"></a>内部类的分类</h5><p>定义在外部类局部位置上（比如方法内）：</p>
+<ol>
+<li>局部内部类（有类名）</li>
+<li>匿名内部类（没有类名）</li>
+</ol>
+<p>定义在外部类的成员位置上：</p>
+<ol>
+<li>成员内部类（没用static修饰）</li>
+<li>静态内部类（使用static修饰）</li>
+</ol>
+<h5 id="局部内部类的使用"><a href="#局部内部类的使用" class="headerlink" title="局部内部类的使用"></a>局部内部类的使用</h5><ol>
+<li><p>定义在外部类的局部位置，比如方法中，并且有类名</p>
+</li>
+<li><p>可以直接访问内外部类的所有成员，包含私有的</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer02&#123;
+    private int n1&#x3D;100;
+    private void m2()&#123;&#125;
+    public void m1()&#123;
+        class Inner02&#123;	&#x2F;&#x2F;局部内部类
+            public void f1()&#123;
+                System.out.println(&quot;n1&#x3D;&quot;+n1);	&#x2F;&#x2F;访问了外部类的n1（私有属性）
+                m2();		&#x2F;&#x2F;访问了外部类的m2（私有方法）
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>不能添加访问修饰符，因为它的地位就是一个局部变量，局部变量是不能使用修饰符的。但是可以使用final修，因为局部变量也可以使用final</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer02&#123;
+    public void m1()&#123;
+        public class Inner02&#123;	&#x2F;&#x2F;报错，局部内部类不能添加访问修饰符
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer02&#123;
+    public void m1()&#123;
+        final class Inner02&#123;		&#x2F;&#x2F;此处使用final修饰
+        &#125;
+        class Inner03 extends Inner02&#123;&#125;		&#x2F;&#x2F;报错，final修饰后无法继承
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>作用域：仅仅在定义它的方法或代码块中</p>
+</li>
+<li><p>局部内部类—访问—&gt;外部类的成员[访问方式：直接访问]</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer02&#123;
+    private int n1&#x3D;100;
+    private void m2()&#123;&#125;
+    public void m1()&#123;
+        class Inner02&#123;	&#x2F;&#x2F;局部内部类
+            public void f1()&#123;
+                System.out.println(&quot;n1&#x3D;&quot;+n1);	&#x2F;&#x2F;访问了外部类的n1（私有属性）
+                m2();		&#x2F;&#x2F;访问了外部类的m2（私有方法）
+            &#125;
+        &#125;
+    &#125;
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>外部类—方法—&gt;局部内部类的成员[访问方式：创建对象，再访问(注意：必须在作用域内)]</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer02&#123;
+    private int n1&#x3D;100;
+    private void m2()&#123;&#125;
+    public void m1()&#123;
+        final class Inner02&#123;  &#x2F;&#x2F;局部内部类
+            public void f1()&#123;
+                System.out.println(&quot;n1&#x3D;&quot;+n1);
+                m2();
+            &#125;
+        &#125;
+        Inner02 inner02 &#x3D; new Inner02();	&#x2F;&#x2F;先创建对象
+        inner02.f1();		&#x2F;&#x2F;再访问内部类的成员
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>外部其他类—不能访问—&gt;局部内部类（因为局部内部类地位是一个局部变量）</p>
+</li>
+<li><p>如果外部类和局部内部类的成员重名时，默认遵守就近原则，如果想访问外部类的成员，则可以使用（外部类名.this.成员）去访问</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer02&#123;
+    private int n1&#x3D;100;
+    public void m1()&#123;
+        final class Inner02&#123;  &#x2F;&#x2F;局部内部类
+            private int n1&#x3D;800;
+            public void f1()&#123;
+                System.out.println(&quot;n1&#x3D;&quot;+n1);	&#x2F;&#x2F;输出n1&#x3D;800(内部类n1)
+                System.out.println(&quot;n1&#x3D;&quot;+Outer02.this.n1);	&#x2F;&#x2F;输出n1&#x3D;100(外部类n1)
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>局部内部类定义在方法中&#x2F;代码块</li>
+<li>作用域在方法体或者代码块中</li>
+<li>本质仍然是一个类</li>
+</ol>
+<h5 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h5><p>匿名内部类是定义在外部类的局部位置，比如在方法中，并且没有类名</p>
+<ol>
+<li>本质是类</li>
+<li>内部类</li>
+<li>该类没有名字</li>
+<li>同时还是一个对象</li>
+</ol>
+<p>基本语法：</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">new 类或接口(参数列表)&#123;
+	类体
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>匿名内部类既是一个类的定义，同时它本身也是一个对象，因此从语法上看，它既有定义类的特征。也有创建对象的特征。对前面代码分析可以看出这个特点，因此可以调用匿名内部类方法</p>
+<p>可以直接访问外部类的所有成员，包含私有的</p>
+<p>不能添加访问修饰符，因为它的地位就是一个局部变量</p>
+<p>作用域仅仅在定义它的方法或代码块中</p>
+<p>匿名内部类—访问—&gt;外部类成员[访问方式：直接访问]</p>
+<p>外部其他类—不能访问—&gt;匿名内部类（因为匿名内部类是一个局部变量）</p>
+<p>如果外部类和匿名内部类的成员重名时，匿名内部类去访问的话，默认遵循就近原则，如果想访问外部类成员，则可以使用（外部类名.this）去访问</p>
 
                 
             </div>
@@ -1047,8 +1221,8 @@ class Pig implements IB,IC&#123;		#同时实现了多个接口，用逗号分隔
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">
-                                    <span class="chip bg-color">面向对象编程</span>
+                                <a href="/tags/Java-SE/">
+                                    <span class="chip bg-color">Java SE</span>
                                 </a>
                             
                         </div>
@@ -1218,48 +1392,46 @@ class Pig implements IB,IC&#123;		#同时实现了多个接口，用逗号分隔
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/13/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86%EF%BC%89%E7%AC%94%E8%AE%B0/">
+                <a href="/2022/12/21/MySQL%E3%80%81Navicat%E5%AE%89%E8%A3%85/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="面向对象编程（高级部分）笔记">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="MySQL、Navicat安装">
                         
-                        <span class="card-title">面向对象编程（高级部分）笔记</span>
+                        <span class="card-title">MySQL、Navicat安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            OOP笔记
+                            数据库入门
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    Java学习笔记
+                            <a href="/categories/Java-Web/" class="post-category">
+                                    Java Web
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">
-                        <span class="chip bg-color">面向对象编程</span>
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -1273,13 +1445,13 @@ class Pig implements IB,IC&#123;		#同时实现了多个接口，用逗号分隔
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/10/Java%E5%85%A5%E9%97%A8-%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE/">
+                <a href="/2022/11/10/%E6%88%BF%E5%B1%8B%E5%87%BA%E7%A7%9F%E9%A1%B9%E7%9B%AE-Java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java入门-房屋出租项目">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="房屋出租项目-Java">
                         
-                        <span class="card-title">Java入门-房屋出租项目</span>
+                        <span class="card-title">房屋出租项目-Java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1535,7 +1707,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.6k</span>&nbsp;字
+                class="white-color">14.6k</span>&nbsp;字
             
             
             
