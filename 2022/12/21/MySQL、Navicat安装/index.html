@@ -418,9 +418,9 @@
 skip-grant-tables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="三、安装MySQL服务及初始化"><a href="#三、安装MySQL服务及初始化" class="headerlink" title="三、安装MySQL服务及初始化"></a>三、安装MySQL服务及初始化</h3><p>以管理员身份运行<code>cmd</code>分别执行以下命令</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysqld install
-mysqld <span class="token comment">--initialize</span>
-net <span class="token keyword">start</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqld <span class="token function">install</span>
+mysqld <span class="token parameter variable">--initialize</span>
+net start mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="四、登录MySQL、修改密码"><a href="#四、登录MySQL、修改密码" class="headerlink" title="四、登录MySQL、修改密码"></a>四、登录MySQL、修改密码</h3><p>执行<code>mysql -u root -p</code>后提示输入密码</p>
 <p>直接回车，因为刚刚的<code>my.ini</code>最后一行的意思就是跳过密码直接登录</p>
@@ -986,7 +986,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.5k</span>&nbsp;字
+                class="white-color">14.1k</span>&nbsp;字
             
             
             

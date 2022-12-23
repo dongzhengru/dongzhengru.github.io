@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    844
+                    1.5k
                 </div>
                 
 
@@ -507,18 +507,92 @@ name <span class="token keyword">varchar</span><span class="token punctuation">(
 <span class="token keyword">limit</span>
 	分页限定<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
 <h5 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h5><ol>
 <li><p>查询多个字段</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span>表名<span class="token punctuation">;</span>
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> 表名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> 表名<span class="token punctuation">;</span>		<span class="token comment">-- 查询所有列的数据</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>去除重复记录</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token keyword">distinct</span> 字段列表 <span class="token keyword">from</span> 表名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>起别名</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">as</span>:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">as</span>		<span class="token comment">-- as也能省略</span>
+<span class="token keyword">select</span> name <span class="token keyword">as</span> 姓名<span class="token punctuation">,</span>math 数学成绩<span class="token punctuation">,</span>english 英语成绩 <span class="token keyword">from</span> stu<span class="token punctuation">;</span>		<span class="token comment">-- 案例</span>
+<span class="token keyword">select</span> name <span class="token keyword">as</span> 姓名<span class="token punctuation">,</span>math <span class="token keyword">as</span> 数学成绩<span class="token punctuation">,</span>english <span class="token keyword">as</span> 英语成绩 <span class="token keyword">from</span> stu<span class="token punctuation">;</span>	<span class="token comment">-- 案例</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
+<h5 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h5><p>条件查询语法</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 条件列表<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>条件</p>
+<p><img src="/2022/12/21/SQL/image-20221223141619216.png" alt="image-20221223141619216"></p>
+<p>注意：</p>
+<ol>
+<li>与<code>Java</code>不同的是等号是<code>=</code>而不是<code>==</code></li>
+<li><code>Null</code>不能使用<code>=</code>而应该使用<code>is</code>或<code>is not</code></li>
+<li><code>&amp;&amp;</code> 和and通用，<code>||</code>与<code>or</code>通用</li>
+<li><code>like</code>模糊查询中下划线<code>_</code>代表单个任意字符，<code>%</code>代表多个任意字符（可以是0个）</li>
+</ol>
+<h5 id="排序查找"><a href="#排序查找" class="headerlink" title="排序查找"></a>排序查找</h5><p>排序查找语法</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表名 <span class="token keyword">order</span> <span class="token keyword">by</span> 排序字段名<span class="token number">1</span> 排序方式<span class="token number">1</span><span class="token punctuation">,</span>排序字段名<span class="token number">2</span> 排序方式<span class="token number">2</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>排序方式：</p>
+<p><code>ASC</code>：升序排列（默认值）</p>
+<p><code>DESC</code>：降序排列</p>
+<p>如果有多个排序条件，当前边的条件值一样时，才会根据第二条件进行排序</p>
+<h5 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h5><p>概念：将一列数据作为一个整体，进行纵向计算</p>
+<p>分类：</p>
+<p><img src="/2022/12/21/SQL/image-20221223145917613.png" alt="image-20221223145917613"></p>
+<p>语法：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 聚合函数名<span class="token punctuation">(</span>列名<span class="token punctuation">)</span> <span class="token keyword">from</span> 表<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>注意：</p>
+<ol>
+<li><code>null</code>值不参与所有聚合函数运算</li>
+<li><code>count</code>一般使用<code>*</code>，新版<code>mysql</code>中会自动选择速度最快的一列进行计算</li>
+</ol>
+<h5 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h5><p>分组查询语法</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 分组前条件限定 <span class="token keyword">group</span> <span class="token keyword">by</span> 分组字段名 <span class="token keyword">having</span> 分组后条件过滤<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>注意：分组之后查询的字段为聚合函数和分组字段，查询其他字段无任何意义（比如求男女平均成绩还去查姓名就无意义）</p>
+<p><code>where</code>和<code>having</code>的区别：</p>
+<ol>
+<li>执行的时机不一样：<code>where</code>是分组前，而<code>having</code>是分组之后对结果进行过滤</li>
+<li>可判断的条件不一样：<code>where</code>不能对聚合函数进行判断，<code>having</code>可以</li>
+<li>执行顺序：<code>where</code> &gt; <code>聚合函数</code> &gt; <code>having</code></li>
+</ol>
+<h5 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h5><p>分页查询语法</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表名 <span class="token keyword">limit</span> 起始索引<span class="token punctuation">,</span>查询条目数<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>注意：</p>
+<ol>
+<li>起始索引&#x3D;（当前页面-1）*每页显示的条数</li>
+<li><code>MySQL</code>使用<code>limit</code>，<code>Oracle</code>使用<code>rownumber</code>，<code>SQL Server</code>使用<code>top</code></li>
+</ol>
+<h3 id="六、约束"><a href="#六、约束" class="headerlink" title="六、约束"></a>六、约束</h3><h5 id="约束的分类"><a href="#约束的分类" class="headerlink" title="约束的分类"></a>约束的分类</h5><p><img src="/SQL/image-20221223194603715.png" alt="image-20221223194603715"></p>
+<p>注意：</p>
+<ol>
+<li><code>MySQL</code>在<code>8.0.16</code>版本以前不支持检查约束</li>
+<li>Null也是个值，不算空</li>
+<li><code>primary key auto_increment</code>主键且自增长：数字类型</li>
+</ol>
+<h5 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h5><p>创建表时添加：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> emp<span class="token punctuation">(</span>
+    id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>	<span class="token comment">-- 主键且自增长</span>
+    ename <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">unique</span><span class="token punctuation">,</span>	<span class="token comment">-- 非空且唯一</span>
+    joindate <span class="token keyword">date</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>		<span class="token comment">-- 非空</span>
+    salary <span class="token keyword">double</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>	<span class="token comment">-- 非空</span>
+    bonus <span class="token keyword">double</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token number">0</span>		<span class="token comment">-- 默认0</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>建完表后添加</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">modify</span> 字段名 数据类型 约束类型<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>删除约束</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">modify</span> 字段名 数据类型<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h5>
                 
             </div>
             <hr/>
@@ -1070,7 +1144,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">13.5k</span>&nbsp;字
+                class="white-color">14.1k</span>&nbsp;字
             
             
             
