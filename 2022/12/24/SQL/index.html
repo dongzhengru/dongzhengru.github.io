@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.2k
                 </div>
                 
 
@@ -620,19 +620,77 @@ name <span class="token keyword">varchar</span><span class="token punctuation">(
 <ul>
 <li><p>内连接：相当于查询A B交集数据</p>
 <p><img src="/2022/12/24/SQL/image-20221224204511056.png" alt="image-20221224204511056"></p>
+<ul>
+<li>查询语法：</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表<span class="token number">1</span><span class="token punctuation">,</span>表<span class="token number">2.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">where</span> 条件<span class="token punctuation">;</span>		<span class="token comment">-- 隐式内连接</span>
+<span class="token comment">-- 可以在表后面给表起别名：from 表1 别名1,表2 别名2</span>
+<span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表<span class="token number">1</span> <span class="token keyword">inner</span> <span class="token keyword">join</span> 表<span class="token number">2</span> <span class="token keyword">on</span> 条件<span class="token punctuation">;</span>	<span class="token comment">-- 显示内连接（inner可以省略）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>外连接：</p>
 <ul>
 <li><p>左外连接：相当于查询A表所有数据和交集部分数据</p>
 <p><img src="/2022/12/24/SQL/image-20221224204546490.png" alt="image-20221224204546490"></p>
+<ul>
+<li>查询语法：</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表<span class="token number">1</span> <span class="token keyword">left</span> <span class="token keyword">outer</span> <span class="token keyword">join</span> 表<span class="token number">2</span> <span class="token keyword">on</span> 条件<span class="token punctuation">;</span>	<span class="token comment">-- outer可以省略</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>右外连接：相当于查询B表所有数据和交集部分数据</p>
 <p><img src="/2022/12/24/SQL/image-20221224204618823.png" alt="image-20221224204618823"></p>
-</li>
+<ul>
+<li>查询语法：</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表<span class="token number">1</span> <span class="token keyword">right</span> <span class="token keyword">outer</span> <span class="token keyword">join</span> 表<span class="token number">2</span> <span class="token keyword">on</span> 条件<span class="token punctuation">;</span>	<span class="token comment">-- outer可以省略</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>
-<h5 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h5>
+<h5 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h5><p>查询中嵌套查询</p>
+<p>案例：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 查询工资高于猪八戒的员工信息</span>
+<span class="token keyword">select</span> salary <span class="token keyword">from</span> emp <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'猪八戒'</span><span class="token punctuation">;</span>		<span class="token comment">-- 得3600</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> salary <span class="token operator">></span> <span class="token number">3600</span><span class="token punctuation">;</span>		<span class="token comment">-- 查询大于3600</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>通过子查询可以合并为：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> salary <span class="token operator">></span> <span class="token punctuation">(</span><span class="token keyword">select</span> salary <span class="token keyword">from</span> emp <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'猪八戒'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查询语法</p>
+<ul>
+<li><p>单行单列：作为条件值，使用<code>=</code> <code>!=</code> <code>&gt;</code> <code>&lt;</code>等进行条件判断</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表 <span class="token keyword">where</span> 字段名 <span class="token operator">=</span> <span class="token punctuation">(</span>子查询<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>多行单列：作为条件值，使用in等关键字进行条件判断</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> 表 <span class="token keyword">where</span> 字段名 <span class="token operator">in</span> <span class="token punctuation">(</span>子查询<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>多行多列：作为虚拟表</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> 字段列表 <span class="token keyword">from</span> <span class="token punctuation">(</span>子查询<span class="token punctuation">)</span> <span class="token keyword">where</span> 条件<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<h3 id="八、事务"><a href="#八、事务" class="headerlink" title="八、事务"></a>八、事务</h3><p>要么同时成功，要么同时失败</p>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><ul>
+<li><p>开启事务（两种皆可）</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">START</span> <span class="token keyword">TRANSACTION</span><span class="token punctuation">;</span>
+<span class="token keyword">BEGIN</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>提交事务</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">commit</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>回滚事务</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">rollback</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<h5 id="自动提交"><a href="#自动提交" class="headerlink" title="自动提交"></a>自动提交</h5><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> @<span class="token variable">@autocommit</span><span class="token punctuation">;</span>
+<span class="token keyword">set</span> @<span class="token variable">@autocommit</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>		<span class="token comment">-- 1自动提交，0手动提交</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h5 id="四大特征（ACID）"><a href="#四大特征（ACID）" class="headerlink" title="四大特征（ACID）"></a>四大特征（ACID）</h5><ul>
+<li><p>原子性（Atomicity）：事务是不可分割的最小操作单位，要么同时成功，要么同时失败</p>
+</li>
+<li><p>一致性（Consistency） ：事务完成时，必须使所有的数据都保持一致状态</p>
+</li>
+<li><p>隔离性（Isolation）：多个事务之间，操作的可见性</p>
+</li>
+<li><p>持久性（Durability）：事务一旦提交或回滚，它对数据库中的数据的改变就是永久的</p>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -1219,7 +1277,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.6k</span>&nbsp;字
+                class="white-color">15.1k</span>&nbsp;字
             
             
             
