@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java SE自学笔记（二）</title>
+      <link href="/2022/12/30/Java%20SE%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+      <url>/2022/12/30/Java%20SE%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、枚举和注解"><a href="#一、枚举和注解" class="headerlink" title="一、枚举和注解"></a>一、枚举和注解</h3><h5 id="枚举介绍"><a href="#枚举介绍" class="headerlink" title="枚举介绍"></a>枚举介绍</h5><p>枚举是一组常量的集合</p><p>属于一种特殊的类，里面只包含一组有限的特定的对象</p><h5 id="自定义类实现枚举"><a href="#自定义类实现枚举" class="headerlink" title="自定义类实现枚举"></a>自定义类实现枚举</h5><ol><li>构造器私有化，防止直接<code>new</code></li><li>不需要提供 <code>setxxx</code> 方法，因为枚举对象值通常为只读</li><li>对枚举对象&#x2F;属性使用<code>final+static</code>共同修饰，实现底层优化</li><li>枚举对象名通常使用全部大写，常量的命名规范</li><li>枚举对象根据需要，也可以有多个属性</li></ol><h5 id="enum关键字实现枚举"><a href="#enum关键字实现枚举" class="headerlink" title="enum关键字实现枚举"></a>enum关键字实现枚举</h5><ol><li>使用关键字<code>enum</code>时，会隐式的继承<code>Enum</code>类、不能再<code>extends</code>其他类,但是可以实现接口</li><li>多个常量用逗号<code>,</code>隔开</li><li>要求将定义常量对象写在前面</li><li>如果使用的是无参构造器，创建常量对象，可以省略<code>()</code></li></ol><h5 id="enum常用方法"><a href="#enum常用方法" class="headerlink" title="enum常用方法"></a>enum常用方法</h5><p><code>toString()</code>：Enum 类已经重写过了Object类的toString 方法，返回的是当前对象名<br><code>name()</code>：返回当前对象名（常量名），子类中不能重写<br><code>ordinal()</code>：返回当前对象的位置号，默认从 0 开始<br><code>values()</code>：返回当前枚举类中所有的对象数组<br><code>valueOf()</code>：将字符串转换成枚举对象，要求传入的字符串必须 为已有的对象名，否则报异常<br><code>compareTo(Enum e)</code>：比较两个枚举常量，比较是位置号</p><p><img src="/2022/12/30/Java%20SE%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20230103204801435.png" alt="image-20230103204801435"></p><h5 id="JDK内置的基本注解类型"><a href="#JDK内置的基本注解类型" class="headerlink" title="JDK内置的基本注解类型"></a>JDK内置的基本注解类型</h5><ol><li><p><code>@Override</code></p><ul><li><p>表示指定重写父类的方法（在编译层面），如果不是则会报错</p></li><li><p>不写<code>@Override</code>，但构成方法的重写也不影响</p></li><li><p>如果写了<code>@Override</code>又没重写就会报错</p></li></ul></li><li><p><code>@Deprecated</code></p><ul><li><p><code>@Deprecated</code>修饰某个元素，表示该元素已经过时</p></li><li><p>不推荐使用，但仍然可以使用</p></li><li><p>从<code>@Deprecated</code>源码可以看出，可以用来修饰方法，类，包，字段，参数，等等</p></li><li><p><code>@Deprecated</code>可以做版本升级过渡使用</p></li></ul></li><li><p><code>@SuppressWarnings</code></p><ul><li><p>当我们不希望看到警告的时候，可以用<code>@SuppressWarnings</code>来抑制警告信息</p></li><li><p>在{“ “}中，可以写入你希望抑制的警告信息</p></li><li><p>作用范围与<code>@SuppressWarnings</code>的位置有关</p></li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java SE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java SE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JDBC</title>
       <link href="/2022/12/25/JDBC/"/>
       <url>/2022/12/25/JDBC/</url>
